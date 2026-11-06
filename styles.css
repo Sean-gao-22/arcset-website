@@ -332,6 +332,55 @@ html:lang(ja) .footer-nav, html:lang(zh-Hans) .footer-nav { text-transform: none
 .reveal.is-in { opacity: 1; transform: none; }
 .chapter-head.reveal { transform: none; }
 
+
+/* News */
+.news-list { border-top: 1px solid var(--line); }
+.news-list li { display: grid; grid-template-columns: 110px 96px 1fr; column-gap: 20px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.news-date { font-size: 13px; letter-spacing: 0.08em; color: var(--muted); font-variant-numeric: tabular-nums; }
+.news-cat { display: inline-block; font-size: 10.5px; letter-spacing: 0.14em; color: var(--muted); padding: 3px 10px; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; }
+.news-title { font-size: 15px; color: var(--ink); }
+.news-empty { padding: 18px 0; font-size: 14px; color: var(--muted); }
+
+/* Contact form */
+.contact-form { margin-top: 36px; max-width: 560px; display: grid; gap: 18px; }
+.contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.contact-form label { display: grid; gap: 6px; font-size: 12px; letter-spacing: 0.08em; color: var(--muted); }
+.contact-form input, .contact-form textarea {
+  font: inherit; font-size: 15px; color: var(--ink); background: transparent;
+  border: 0; border-bottom: 1px solid var(--gray-3); border-radius: 0; padding: 8px 0; outline: none;
+  transition: border-color 0.2s;
+}
+.contact-form textarea { resize: vertical; min-height: 96px; line-height: 1.6; }
+.contact-form input:focus, .contact-form textarea:focus { border-bottom-color: var(--ink); }
+.contact-form input:user-invalid, .contact-form textarea:user-invalid { border-bottom-color: #d64545; }
+.form-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; margin-top: 8px; }
+.contact-form .pill { margin-top: 0; }
+.form-alt { font-size: 13px; color: var(--muted); }
+.form-alt:hover { color: var(--ink); }
+.form-status { min-height: 1.6em; font-size: 13.5px; color: var(--emerald-ink); margin: 0; }
+.form-status.is-error { color: #d64545; }
+.contact-form.is-sending { opacity: 0.6; pointer-events: none; }
+
+/* Approach: the line that runs through the three phases */
+.phases { position: relative; }
+.phase-line { position: absolute; left: -44px; top: 0; width: 44px; height: 100%; overflow: visible; pointer-events: none; }
+.phase-line path { fill: none; stroke: var(--emerald); stroke-width: 1.2; }
+.phase-line .set-mark { fill: none; stroke: var(--emerald); stroke-width: 1.2; opacity: 0; transition: opacity 0.5s var(--ease); }
+.phase-line .set-fill { fill: var(--emerald); opacity: 0; transform-box: fill-box; transform-origin: 100% 100%; transform: scale(0); transition: opacity 0.4s, transform 0.5s var(--ease); }
+.phase-line .is-set .set-mark { opacity: 1; }
+.phase-line .is-set .set-fill { opacity: 1; transform: scale(1); }
+@media (max-width: 1080px) { .phase-line { display: none; } }
+
+/* Language sweep */
+.sweep-in { animation: sweepIn 0.55s var(--ease) both; }
+@keyframes sweepIn { from { opacity: 0.2; filter: blur(6px); } to { opacity: 1; filter: blur(0); } }
+.sweep-front { position: fixed; top: 0; bottom: 0; width: 240px; z-index: 60; pointer-events: none; background: linear-gradient(90deg, rgba(0,128,92,0) 0%, rgba(0,128,92,0.16) 60%, rgba(0,128,92,0.28) 82%, rgba(0,128,92,0) 100%); transform: translateX(-240px); }
+
+/* Intro: hold the page quiet until the mark has formed */
+body.is-intro .site-header, body.is-intro .kv-foot, body.is-intro .scroll-cue { opacity: 0; }
+.site-header { transition: background-color 0.3s, opacity 0.8s var(--ease); }
+
 /* Responsive */
 @media (max-width: 1080px) {
   .kv-inner, .kv-foot, .chapter-body, .panel-inner, .panel-inner-dark, .contact-grid, .leader { grid-template-columns: 1fr; row-gap: 28px; }
@@ -377,6 +426,8 @@ html:lang(ja) .footer-nav, html:lang(zh-Hans) .footer-nav { text-transform: none
   .phases li { grid-template-columns: 64px 1fr; }
   .cases { grid-template-columns: 1fr; }
   .company > div { grid-template-columns: 1fr; gap: 4px; }
+  .news-list li { grid-template-columns: 1fr; row-gap: 6px; }
+  .field-row { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-nav { grid-column: 1; grid-row: 2; }
   .footer-meta { flex-direction: column; gap: 10px; }

@@ -68,6 +68,9 @@ const translations = {
     companyAddressLabel: "Address", companyAddress: "Roppongi KS Building 5F, 3-16-12 Roppongi,<br>Minato-ku, Tokyo 106-0032, Japan",
     companyEmailLabel: "Email",
 
+    newsChapter: "News", newsLabel: "Updates", navNews: "News",
+    formCompany: "Company", formName: "Name", formEmail: "Email", formMessage: "What would you like to discuss?", formSubmit: "Send", formAlt: "or email",
+    formSent: "Thank you. We will reply within two business days.", formError: "The message could not be sent. Please email us directly.", formInvalid: "Please fill in all fields.",
     contactLabel: "Get in touch",
     contactTitle: "Let's talk about your business in Japan.",
     contactBody: "Tell us where you are today and what you want to achieve. In a first conversation of about thirty minutes, we will give you our honest view of the next practical step.",
@@ -141,6 +144,9 @@ const translations = {
     companyAddressLabel: "所在地", companyAddress: "〒106-0032<br>東京都港区六本木3-16-12 六本木KSビル5階",
     companyEmailLabel: "メール",
 
+    newsChapter: "お知らせ", newsLabel: "最新情報", navNews: "お知らせ",
+    formCompany: "会社名", formName: "お名前", formEmail: "メールアドレス", formMessage: "ご相談内容", formSubmit: "送信する", formAlt: "またはメールで",
+    formSent: "お問い合わせありがとうございます。2営業日以内にご返信いたします。", formError: "送信できませんでした。お手数ですが、メールにてご連絡ください。", formInvalid: "すべての項目をご入力ください。",
     contactLabel: "お問い合わせ",
     contactTitle: "日本での事業について、お気軽にご相談ください。",
     contactBody: "現在の状況と目指す姿をお聞かせください。初回は30分ほどのご相談で、次に取るべき現実的な一歩を率直にお伝えします。",
@@ -214,6 +220,9 @@ const translations = {
     companyAddressLabel: "地址", companyAddress: "〒106-0032<br>东京都港区六本木3-16-12 六本木KS大厦5层",
     companyEmailLabel: "邮箱",
 
+    newsChapter: "公告", newsLabel: "最新动态", navNews: "公告",
+    formCompany: "公司名称", formName: "姓名", formEmail: "邮箱", formMessage: "想聊的内容", formSubmit: "发送", formAlt: "或发邮件至",
+    formSent: "感谢您的来信，我们会在两个工作日内回复。", formError: "发送失败，请直接发送邮件与我们联系。", formInvalid: "请填写所有项目。",
     contactLabel: "联系我们",
     contactTitle: "关于在日本的业务，欢迎随时与我们联系。",
     contactBody: "告诉我们您目前的情况和想达成的目标。首次沟通约三十分钟，我们会坦率地给出下一步最现实的建议。",
@@ -225,6 +234,7 @@ const translations = {
 (() => { const q = new URLSearchParams(location.search).get("palette"); if (["a","b","c","d"].includes(q)) document.documentElement.setAttribute("data-palette", q); })();
 
 /* ---------- i18n ---------- */
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const SUPPORTED = ["en", "ja", "zh"];
 const STORAGE_KEY = "arcset-language";
 const HTML_KEYS = new Set(["heroSub", "companyAddress"]);
@@ -271,15 +281,50 @@ function applyLanguage(lang) {
   document.querySelectorAll(".language-switcher button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.language === lang)));
   document.querySelectorAll("[data-split]").forEach(splitWords);
   try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+  if (typeof renderNews === "function") renderNews();
+  if (window.phaseLineRebuild) setTimeout(window.phaseLineRebuild, 50);
 }
 
-document.querySelectorAll(".language-switcher button").forEach((b) => {
-  b.addEventListener("click", () => {
-    document.body.classList.remove("is-ready");
-    applyLanguage(b.dataset.language);
-    requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add("is-ready")));
+/* Switching language: a front sweeps left to right across the page and the
+   text changes as it passes. Across borders, literally. */
+let sweeping = false;
+function sweepLanguage(lang) {
+  if (sweeping) return;
+  const current = document.documentElement.lang.startsWith("zh") ? "zh" : document.documentElement.lang;
+  if (lang === current) return;
+  if (reduceMotion) { applyLanguage(lang); return; }
+  sweeping = true;
+  const dict = translations[lang] || translations.en;
+  const front = document.createElement("div"); front.className = "sweep-front"; document.body.appendChild(front);
+  const items = [];
+  document.querySelectorAll("[data-i18n], [data-i18n-html]").forEach((el) => {
+    const r = el.getBoundingClientRect();
+    items.push({ el, x: r.left + Math.min(r.width, 240) / 2, done: false });
   });
-});
+  const vw = window.innerWidth, dur = 1000, t0 = performance.now();
+  // set the language code up front so fonts and line-height rules switch together
+  document.documentElement.lang = lang === "zh" ? "zh-Hans" : lang;
+  document.title = dict.pageTitle;
+  function tick(now) {
+    const p = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+    const fx = -240 + (vw + 480) * e;
+    front.style.transform = `translateX(${fx}px)`;
+    fields.forEach((f) => f.sweep(fx));
+    for (const it of items) {
+      if (it.done || it.x > fx) continue;
+      it.done = true;
+      const key = it.el.getAttribute("data-i18n"), hkey = it.el.getAttribute("data-i18n-html");
+      if (key && dict[key] !== undefined) { if (HTML_KEYS.has(key)) it.el.innerHTML = dict[key]; else it.el.textContent = dict[key]; }
+      if (hkey && dict[hkey] !== undefined) it.el.innerHTML = dict[hkey];
+      if (it.el.hasAttribute("data-split")) { splitWords(it.el); it.el.querySelectorAll(".w").forEach((w) => { w.style.animation = "none"; w.style.opacity = 1; w.style.filter = "none"; w.style.transform = "none"; }); }
+      it.el.classList.remove("sweep-in"); void it.el.offsetWidth; it.el.classList.add("sweep-in");
+    }
+    if (p < 1) requestAnimationFrame(tick);
+    else { fields.forEach((f) => f.sweep(null)); applyLanguage(lang); document.querySelectorAll(".kv-title .w").forEach((w) => { w.style.animation = "none"; w.style.opacity = 1; w.style.filter = "none"; w.style.transform = "none"; }); front.remove(); sweeping = false; renderNews(); setTimeout(() => document.querySelectorAll(".sweep-in").forEach((el) => el.classList.remove("sweep-in")), 700); }
+  }
+  requestAnimationFrame(tick);
+}
+document.querySelectorAll(".language-switcher button").forEach((b) => b.addEventListener("click", () => sweepLanguage(b.dataset.language)));
 applyLanguage(detectLanguage());
 
 /* ---------- Menu & header ---------- */
@@ -302,7 +347,6 @@ window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
 const year = document.getElementById("current-year"); if (year) year.textContent = String(new Date().getFullYear());
 
 /* ---------- Reveal on scroll ---------- */
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const revealEls = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window && !reduceMotion) {
   const io = new IntersectionObserver((entries) => {
@@ -325,6 +369,8 @@ function arcField(canvas, opts) {
   let w = 0, h = 0, dpr = 1, ribbons = [], t = 0, raf = 0, running = false, scrollY = 0;
   const mouse = { x: 0.5, y: 0.5, tx: 0.5, ty: 0.5, px: -1e4, py: -1e4 };
   const sets = []; // active "SET" points from presses
+  let intro = null; // the opening: ribbons gather and the mark forms once
+  let sweepX = null; // a language sweep in progress: ribbons are dragged by the front
 
   function resize() {
     const r = canvas.getBoundingClientRect();
@@ -365,6 +411,14 @@ function arcField(canvas, opts) {
     // wake: ribbons bend gently around the pointer
     const dx = x - mouse.px, dy = y - mouse.py, d2 = dx * dx + dy * dy;
     if (d2 < 160 * 160) { const k = (1 - Math.sqrt(d2) / 160); a += (dy > 0 ? 1 : -1) * k * k * 0.35; }
+    // Intro: everything gathers around the mark, then lets go
+    if (intro) {
+      const sx = x - intro.x, sy = y - intro.y, d = Math.hypot(sx, sy) || 1;
+      const env = intro.env(t), k = env * (0.35 + 0.65 * Math.max(0, 1 - d / intro.radius));
+      const toward = Math.atan2(-sy, -sx);
+      let diff = toward + 0.8 - a; diff = Math.atan2(Math.sin(diff), Math.cos(diff));
+      a += diff * k;
+    }
     // SET: ribbons near a press turn toward it, then are released
     for (let i = 0; i < sets.length; i++) {
       const s = sets[i], sx = x - s.x, sy = y - s.y, d = Math.hypot(sx, sy);
@@ -381,6 +435,7 @@ function arcField(canvas, opts) {
   function step(r) {
     const a = flow(r.x, r.y, r);
     r.x += Math.cos(a) * r.speed; r.y += Math.sin(a) * r.speed; r.age++;
+    if (sweepX !== null) { const d = Math.abs(r.x - sweepX); if (d < 220) r.x += 9 * (1 - d / 220); }
     r.pts.push(r.x, r.y);
     if (r.pts.length > r.len * 2) r.pts.splice(0, 2);
   }
@@ -404,6 +459,25 @@ function arcField(canvas, opts) {
     }
     ctx.globalAlpha = 1;
   }
+  function drawIntro() {
+    if (!intro) return;
+    const age = t - intro.t0; if (age > intro.life) { intro = null; return; }
+    const S = intro.size, k = S / 1000;
+    const pm = Math.min(1, Math.max(0, (age - 150) / 900));           // outline draws itself
+    const fillA = Math.min(1, Math.max(0, (age - 950) / 400));         // then fills
+    const sq = Math.min(1, Math.max(0, (age - 800) / 350));            // the square lands
+    const fade = age < intro.life - 650 ? 1 : (intro.life - age) / 650; // then everything lets go
+    const e = 1 - Math.pow(1 - sq, 3);
+    ctx.save(); ctx.translate(intro.x - S * 0.5, intro.y - S * 0.5); ctx.scale(k, k);
+    const arc = new Path2D("M104 893A789 789 0 0 1 893 104V384A509 509 0 0 0 384 893Z");
+    const L = 2600;
+    ctx.lineWidth = 1.4 / k; ctx.strokeStyle = opts.setColor; ctx.lineCap = "round";
+    ctx.globalAlpha = fade; ctx.setLineDash([L * pm, L]); ctx.stroke(arc); ctx.setLineDash([]);
+    ctx.globalAlpha = fillA * fade; ctx.fillStyle = opts.setColor; ctx.fill(arc);
+    ctx.globalAlpha = e * fade; ctx.fillStyle = opts.markColor;
+    const side = 280 * e; ctx.fillRect(893 - side, 893 - side, side, side);
+    ctx.restore(); ctx.globalAlpha = 1;
+  }
   function draw() {
     ctx.clearRect(0, 0, w, h);
     ctx.lineCap = "round"; ctx.lineJoin = "round";
@@ -423,7 +497,7 @@ function arcField(canvas, opts) {
       }
     }
     ctx.globalAlpha = 1;
-    drawSets();
+    drawSets(); drawIntro();
   }
   function frame(now) {
     if (!running) return;
@@ -447,6 +521,14 @@ function arcField(canvas, opts) {
     sets.push({ x, y, t0, life, radius: 320, pull: (now) => { const a = now - t0; return a < 300 ? a / 300 : a < life - 900 ? 1 : Math.max(0, (life - a) / 900); } });
     if (sets.length > 4) sets.shift();
   }
+  function playIntro() {
+    const narrow = w < 900;
+    const x = narrow ? w * 0.5 : w * 0.68, y = narrow ? h * 0.5 : h * 0.46;
+    const t0 = performance.now(), life = 2500;
+    intro = { x, y, t0, life, size: Math.min(w, h) * (narrow ? 0.42 : 0.36), radius: Math.max(w, h),
+      env: (now) => { const a = now - t0; return a < 250 ? a / 250 : a < 1500 ? 1 : Math.max(0, 1 - (a - 1500) / 800); } };
+  }
+  function sweep(clientX) { sweepX = clientX === null ? null : clientX - canvas.getBoundingClientRect().left; }
   function pointer(clientX, clientY) {
     const r = canvas.getBoundingClientRect();
     mouse.px = clientX - r.left; mouse.py = clientY - r.top;
@@ -455,13 +537,13 @@ function arcField(canvas, opts) {
   let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { resize(); if (!running) still(); }, 120); });
   window.addEventListener("scroll", () => { scrollY = window.scrollY; }, { passive: true });
   resize();
-  return { start, stop, still, press, pointer };
+  return { start, stop, still, press, pointer, playIntro, sweep };
 }
 
 const fields = [];
 const bgCanvas = document.getElementById("field");
 if (bgCanvas) {
-  const bg = arcField(bgCanvas, { count: 60, length: 540, accentRatio: 0.16, stroke: "#121212", accent: "#00805c", setColor: "#00805c", parallax: 0.12 });
+  const bg = arcField(bgCanvas, { count: 60, length: 540, accentRatio: 0.16, stroke: "#121212", accent: "#00805c", setColor: "#00805c", markColor: "#121212", parallax: 0.12 });
   fields.push(bg); bg.still();
   if (!reduceMotion) {
     bg.start();
@@ -470,7 +552,7 @@ if (bgCanvas) {
 }
 const darkCanvas = document.querySelector(".field-dark");
 if (darkCanvas) {
-  const dk = arcField(darkCanvas, { count: 40, length: 520, accentRatio: 0.22, stroke: "#ffffff", accent: "#3ddc97", setColor: "#3ddc97", parallax: 0 });
+  const dk = arcField(darkCanvas, { count: 40, length: 520, accentRatio: 0.22, stroke: "#ffffff", accent: "#3ddc97", setColor: "#3ddc97", markColor: "#ffffff", parallax: 0 });
   fields.push(dk); dk.still();
   if (!reduceMotion) {
     if ("IntersectionObserver" in window) {
@@ -486,7 +568,107 @@ if (!reduceMotion) {
   }, { passive: true });
 }
 
-/* ---------- Page-load moment ---------- */
+/* ---------- News ---------- */
+var newsItems = null;
+function currentLang() { const l = document.documentElement.lang; return l.startsWith("zh") ? "zh" : (SUPPORTED.includes(l) ? l : "en"); }
+function formatDate(d, lang) {
+  const [y, m, day] = d.split("-");
+  if (lang === "ja") return day ? `${y}年${Number(m)}月${Number(day)}日` : `${y}年${Number(m)}月`;
+  if (lang === "zh") return day ? `${y} 年 ${Number(m)} 月 ${Number(day)} 日` : `${y} 年 ${Number(m)} 月`;
+  const months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  return day ? `${months[Number(m) - 1]} ${Number(day)}, ${y}` : `${months[Number(m) - 1]} ${y}`;
+}
+function renderNews() {
+  const list = document.getElementById("news-list"); if (!list || !newsItems) return;
+  const lang = currentLang();
+  list.innerHTML = "";
+  newsItems.slice(0, 6).forEach((n) => {
+    const li = document.createElement("li");
+    const date = document.createElement("time"); date.className = "news-date"; date.dateTime = n.date; date.textContent = formatDate(n.date, lang);
+    const cat = document.createElement("span"); cat.className = "news-cat"; cat.textContent = n.category[lang] || n.category.en;
+    const title = document.createElement("p"); title.className = "news-title"; title.textContent = n.title[lang] || n.title.en;
+    li.append(date, cat, title); list.appendChild(li);
+  });
+}
+fetch("news.json", { cache: "no-cache" }).then((r) => r.json()).then((items) => { newsItems = items; renderNews(); }).catch(() => {
+  const list = document.getElementById("news-list"); if (list) list.innerHTML = "";
+});
+
+/* ---------- Contact form ---------- */
+const form = document.getElementById("contact-form");
+if (form) {
+  const status = form.querySelector(".form-status");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const dict = translations[currentLang()];
+    status.classList.remove("is-error");
+    if (!form.checkValidity()) { status.textContent = dict.formInvalid; status.classList.add("is-error"); form.reportValidity(); return; }
+    const data = Object.fromEntries(new FormData(form).entries());
+    data._subject = "[arcset.jp] お問い合わせ: " + data.company;
+    form.classList.add("is-sending"); status.textContent = "";
+    try {
+      const res = await fetch("https://formsubmit.co/ajax/info@arcset.jp", { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) });
+      const out = await res.json();
+      if (!res.ok || String(out.success) !== "true") throw new Error("send failed");
+      form.reset(); status.textContent = dict.formSent;
+    } catch (err) {
+      status.textContent = dict.formError; status.classList.add("is-error");
+    } finally { form.classList.remove("is-sending"); }
+  });
+}
+
+/* ---------- Approach: a line runs through the phases as you scroll,
+   and sets a mark at each decision point ---------- */
+(function phaseLine() {
+  const list = document.getElementById("phases"), svg = list && list.querySelector(".phase-line");
+  if (!list || !svg) return;
+  const NS = "http://www.w3.org/2000/svg";
+  let path, marks = [], length = 0, stops = [];
+  function build() {
+    svg.innerHTML = ""; marks = []; stops = [];
+    const lr = list.getBoundingClientRect();
+    if (lr.width === 0 || getComputedStyle(svg).display === "none") return;
+    const gates = list.querySelectorAll(".gate");
+    const x = 22, pts = [[x, 0]];
+    gates.forEach((g) => { const r = g.getBoundingClientRect(); pts.push([x, r.top - lr.top + r.height / 2]); });
+    pts.push([x, lr.height]);
+    // a gentle arc between stops rather than a straight rule
+    let d = `M ${pts[0][0]} ${pts[0][1]}`;
+    for (let i = 1; i < pts.length; i++) {
+      const [x0, y0] = pts[i - 1], [x1, y1] = pts[i], c = (y1 - y0) * 0.5;
+      d += ` C ${x0 - 14} ${y0 + c}, ${x1 + 14} ${y1 - c}, ${x1} ${y1}`;
+    }
+    path = document.createElementNS(NS, "path"); path.setAttribute("d", d); svg.appendChild(path);
+    length = path.getTotalLength(); path.style.strokeDasharray = length; path.style.strokeDashoffset = length;
+    svg.setAttribute("viewBox", `0 0 44 ${lr.height}`); svg.setAttribute("preserveAspectRatio", "none");
+    for (let i = 1; i < pts.length - 1; i++) {
+      const [px, py] = pts[i], g = document.createElementNS(NS, "g"); g.setAttribute("class", "mark");
+      const o = document.createElementNS(NS, "rect"); o.setAttribute("class", "set-mark"); o.setAttribute("x", px - 8); o.setAttribute("y", py - 8); o.setAttribute("width", 16); o.setAttribute("height", 16);
+      const f = document.createElementNS(NS, "rect"); f.setAttribute("class", "set-fill"); f.setAttribute("x", px); f.setAttribute("y", py); f.setAttribute("width", 7); f.setAttribute("height", 7);
+      g.append(o, f); svg.appendChild(g); marks.push(g); stops.push(py / lr.height);
+    }
+    update();
+  }
+  function update() {
+    if (!path) return;
+    const lr = list.getBoundingClientRect(), vh = window.innerHeight;
+    const p = Math.min(1, Math.max(0, (vh * 0.62 - lr.top) / lr.height));
+    path.style.strokeDashoffset = length * (1 - p);
+    marks.forEach((m, i) => m.classList.toggle("is-set", p >= stops[i] - 0.01));
+  }
+  window.addEventListener("scroll", update, { passive: true });
+  let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(build, 150); });
+  document.fonts && document.fonts.ready.then(build);
+  window.addEventListener("load", build);
+  window.phaseLineRebuild = build;
+})();
+
+/* ---------- Page-load moment ----------
+   The ribbons gather once and form the mark; then the page arrives. */
+if (!reduceMotion) document.body.classList.add("is-intro");
 window.addEventListener("load", () => {
-  requestAnimationFrame(() => requestAnimationFrame(() => document.body.classList.add("is-ready")));
+  const bg = fields[0];
+  if (reduceMotion || !bg) { document.body.classList.remove("is-intro"); document.body.classList.add("is-ready"); return; }
+  bg.playIntro();
+  setTimeout(() => { document.body.classList.remove("is-intro"); document.body.classList.add("is-ready"); }, 1900);
 });

@@ -6,6 +6,18 @@
   <meta name="theme-color" content="#f2f2f0">
   <meta name="description" content="ARCSET is a Tokyo-based partner for cross-border business development and AI solutions. One team from strategy to sales to implementation, for overseas companies entering Japan and Japanese companies launching new businesses.">
   <link rel="canonical" href="https://www.arcset.jp/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ARCSET">
+  <meta property="og:title" content="ARCSET | 越境の事業開発とAIソリューション">
+  <meta property="og:description" content="海外企業の日本進出と、日本企業の新規事業・AI導入を、戦略立案から営業、導入まで一貫して支援する東京のパートナー。">
+  <meta property="og:url" content="https://www.arcset.jp/">
+  <meta property="og:image" content="https://www.arcset.jp/assets/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="zh_CN">
+  <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="icon" href="assets/favicon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -170,7 +182,7 @@
         <p class="chapter-label reveal" data-i18n="approachLabel">Three phases</p>
         <div class="chapter-content">
           <p class="statement reveal" data-i18n="approachIntro">Each phase ends in a decision you can make with evidence rather than optimism.</p>
-          <ol class="phases">
+          <ol class="phases" id="phases"><svg class="phase-line" aria-hidden="true"></svg>
             <li class="reveal">
               <span class="phase-num">01</span>
               <div>
@@ -223,10 +235,25 @@
       </div>
     </section>
 
-    <!-- 06 Company -->
-    <section class="chapter" id="company" aria-labelledby="company-title">
+    <!-- 06 News -->
+    <section class="chapter" id="news" aria-labelledby="news-title">
       <header class="chapter-head reveal">
         <span class="chapter-num">06</span>
+        <span class="chapter-rule"></span>
+        <h2 id="news-title" class="chapter-title" data-i18n="newsChapter">News</h2>
+      </header>
+      <div class="chapter-body">
+        <p class="chapter-label reveal" data-i18n="newsLabel">Updates</p>
+        <div class="chapter-content">
+          <ol class="news-list reveal" id="news-list" aria-live="polite"></ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 Company -->
+    <section class="chapter" id="company" aria-labelledby="company-title">
+      <header class="chapter-head reveal">
+        <span class="chapter-num">07</span>
         <span class="chapter-rule"></span>
         <h2 id="company-title" class="chapter-title" data-i18n="companyChapter">Company</h2>
       </header>
@@ -269,7 +296,23 @@
           <div class="reveal">
             <h2 id="contact-title" data-i18n="contactTitle">Tell us where you are, and where you want to be in Japan.</h2>
             <p data-i18n="contactBody">A first conversation takes thirty minutes. We will tell you plainly what the next practical step is, and whether we are the right partner for it.</p>
-            <a class="pill pill-large" href="mailto:info@arcset.jp"><span>info@arcset.jp</span><i class="pill-arrow" aria-hidden="true"></i></a>
+            <form class="contact-form" id="contact-form" action="https://formsubmit.co/info@arcset.jp" method="POST" novalidate>
+              <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="hp">
+              <input type="hidden" name="_subject" value="[arcset.jp] お問い合わせ">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_captcha" value="false">
+              <div class="field-row">
+                <label><span data-i18n="formCompany">Company</span><input type="text" name="company" required autocomplete="organization"></label>
+                <label><span data-i18n="formName">Name</span><input type="text" name="name" required autocomplete="name"></label>
+              </div>
+              <label><span data-i18n="formEmail">Email</span><input type="email" name="email" required autocomplete="email"></label>
+              <label><span data-i18n="formMessage">What would you like to discuss?</span><textarea name="message" rows="4" required></textarea></label>
+              <div class="form-actions">
+                <button class="pill pill-large" type="submit"><span data-i18n="formSubmit">Send</span><i class="pill-arrow" aria-hidden="true"></i></button>
+                <a class="form-alt" href="mailto:info@arcset.jp"><span data-i18n="formAlt">or email</span> info@arcset.jp</a>
+              </div>
+              <p class="form-status" role="status" aria-live="polite"></p>
+            </form>
           </div>
         </div>
       </div>
@@ -288,6 +331,7 @@
         <a href="#services" data-i18n="navServices">Services</a>
         <a href="#approach" data-i18n="navApproach">Approach</a>
         <a href="#experience" data-i18n="navExperience">Experience</a>
+        <a href="#news" data-i18n="navNews">News</a>
         <a href="#company" data-i18n="navCompany">Company</a>
       </nav>
       <div class="footer-meta">

@@ -1,0 +1,29 @@
+[
+  {
+    "date": "2026-11-06",
+    "category": { "ja": "お知らせ", "en": "Notice", "zh": "公告" },
+    "title": {
+      "ja": "公式サイトをリニューアルしました。",
+      "en": "Our website has been renewed.",
+      "zh": "官方网站已全新改版。"
+    }
+  },
+  {
+    "date": "2026-10",
+    "category": { "ja": "体制", "en": "Team", "zh": "团队" },
+    "title": {
+      "ja": "事業開発責任者が参画し、営業・事業開発体制を強化しました。",
+      "en": "A Head of Business Development has joined, strengthening our sales and business development capacity.",
+      "zh": "事业开发负责人加入，销售与业务开发体制进一步加强。"
+    }
+  },
+  {
+    "date": "2026-08",
+    "category": { "ja": "会社設立", "en": "Company", "zh": "公司成立" },
+    "title": {
+      "ja": "ARCSET株式会社を設立しました。",
+      "en": "ARCSET Co., Ltd. was established in Tokyo.",
+      "zh": "ARCSET株式会社在东京成立。"
+    }
+  }
+]
