@@ -3,254 +3,298 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#183b5b">
-  <meta name="description" content="ARCSET helps overseas companies enter and grow in Japan through market strategy, localization, business development, and AI/technology implementation.">
+  <meta name="theme-color" content="#e8eae7">
+  <meta name="description" content="ARCSET is a Tokyo-based partner for cross-border business development and AI solutions. One team from strategy to sales to implementation, for overseas companies entering Japan and Japanese companies launching new businesses.">
   <link rel="canonical" href="https://www.arcset.jp/">
-  <link rel="icon" href="assets/arcset-symbol-black.jpg" type="image/jpeg">
-  <link rel="preload" href="assets/arcset-wordmark-black.jpg" as="image">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
   <link rel="stylesheet" href="styles.css">
-  <title>ARCSET | Japan Market Entry &amp; Execution Partner</title>
+  <title>ARCSET | Cross-border business development and AI solutions, Tokyo</title>
 </head>
 <body>
   <a class="skip-link" href="#main" data-i18n="skipLink">Skip to content</a>
 
+  <canvas id="field" class="field" aria-hidden="true"></canvas>
+
   <header class="site-header" id="top">
     <div class="header-inner">
       <a class="brand" href="#top" aria-label="ARCSET home">
-        <img src="assets/arcset-wordmark-black.jpg" alt="ARCSET">
+        <img src="assets/arcset-wordmark-black.png" alt="ARCSET" width="150" height="27">
       </a>
-
+      <div class="language-switcher" aria-label="Language">
+        <button type="button" data-language="ja" aria-pressed="false" lang="ja">JP</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-language="en" aria-pressed="true" lang="en">EN</button>
+        <span aria-hidden="true">/</span>
+        <button type="button" data-language="zh" aria-pressed="false" lang="zh">中文</button>
+      </div>
       <button class="menu-button" type="button" aria-expanded="false" aria-controls="primary-navigation">
         <span class="menu-button-label" data-i18n="menu">Menu</span>
         <span class="menu-icon" aria-hidden="true"><span></span><span></span></span>
       </button>
-
       <nav class="primary-navigation" id="primary-navigation" aria-label="Primary navigation">
         <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#business" data-i18n="navBusiness">Business</a>
         <a href="#services" data-i18n="navServices">Services</a>
         <a href="#approach" data-i18n="navApproach">Approach</a>
         <a href="#experience" data-i18n="navExperience">Experience</a>
         <a href="#company" data-i18n="navCompany">Company</a>
-        <a class="nav-contact" href="mailto:info@arcset.jp" data-i18n="navContact">Contact</a>
-        <div class="language-switcher" aria-label="Language">
-          <button type="button" data-language="en" aria-pressed="true">EN</button>
-          <span aria-hidden="true">/</span>
-          <button type="button" data-language="ja" aria-pressed="false">JP</button>
-          <span aria-hidden="true">/</span>
-          <button type="button" data-language="zh" aria-pressed="false">中文</button>
-        </div>
+        <a class="pill pill-small" href="#contact"><span data-i18n="navContact">Contact</span><i class="pill-arrow" aria-hidden="true"></i></a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-arc hero-arc-one" aria-hidden="true"></div>
-      <div class="hero-arc hero-arc-two" aria-hidden="true"></div>
-      <div class="hero-inner">
-        <div class="hero-copy reveal">
-          <p class="eyebrow" data-i18n="heroEyebrow">JAPAN MARKET ENTRY PARTNER</p>
-          <h1 id="hero-title" data-i18n-html="heroTitle"><span class="heading-line">Build your business</span><span class="heading-line">in Japan.</span></h1>
-          <p class="hero-lead" data-i18n="heroLead">ARCSET connects strategy, localization, sales execution, and technology—helping overseas companies enter Japan and turn market potential into measurable growth.</p>
-          <div class="hero-actions">
-            <a class="button button-gold" href="mailto:info@arcset.jp" data-i18n="heroPrimary">Discuss your Japan entry</a>
-            <a class="text-link" href="#services"><span data-i18n="heroSecondary">Explore our services</span><span aria-hidden="true">↘</span></a>
+
+    <!-- 00 Key visual -->
+    <section class="kv" aria-labelledby="hero-title">
+      <div class="kv-inner">
+        <h1 id="hero-title" class="kv-title" data-i18n="heroTitle" data-split>Across Borders. Set Business in Motion.</h1>
+        <p class="kv-sub" data-i18n="heroSub">Cross-border business development<br>and AI solutions, from Tokyo.</p>
+      </div>
+      <div class="kv-foot">
+        <p class="kv-lead" data-i18n="heroLead">ARCSET takes overseas companies into Japan and helps Japanese companies launch new businesses and adopt AI. One team, from strategy through sales to implementation.</p>
+        <div class="kv-actions">
+          <a class="pill" href="#contact"><span data-i18n="heroPrimary">Start a conversation</span><i class="pill-arrow" aria-hidden="true"></i></a>
+          <a class="pill pill-ghost" href="#business"><span data-i18n="heroSecondary">Our business</span><i class="pill-arrow" aria-hidden="true"></i></a>
+        </div>
+      </div>
+      <div class="scroll-cue" aria-hidden="true"><span>SCROLL</span><i></i></div>
+    </section>
+
+    <!-- 01 About -->
+    <section class="chapter" id="about" aria-labelledby="about-title">
+      <header class="chapter-head reveal">
+        <span class="chapter-num">01</span>
+        <span class="chapter-rule"></span>
+        <h2 id="about-title" class="chapter-title" data-i18n="aboutChapter">Who we are</h2>
+      </header>
+      <div class="chapter-body">
+        <p class="chapter-label reveal" data-i18n="aboutLabel">About ARCSET</p>
+        <div class="chapter-content">
+          <p class="statement reveal" data-i18n="aboutTitle">The people who plan it sell it, and see it through to go-live.</p>
+          <div class="prose reveal">
+            <p data-i18n="aboutLead">Entering Japan, or starting something new inside it, rarely fails on the idea. It fails in the handoffs: between the strategy and the salesperson, between the deal and the delivery team, between headquarters and the local office.</p>
+            <p data-i18n="aboutBody">ARCSET removes those handoffs. The same team that designs the route to market opens the customer conversations, localizes the offer, and stays in the room until the system is running and the numbers are reported. We work in Japanese, English and Chinese, and we are comfortable on both sides of the table.</p>
+          </div>
+          <ul class="values reveal">
+            <li><span class="values-num">1</span><div><h3 data-i18n="value1Title">Cross</h3><p data-i18n="value1Body">Borders between countries, industries, organizations and technologies. We understand the expectations on both sides and translate between them.</p></div></li>
+            <li><span class="values-num">2</span><div><h3 data-i18n="value2Title">Structure</h3><p data-i18n="value2Body">Advice becomes a plan with owners, deliverables, milestones and a reporting rhythm. Nothing stays as a slide.</p></div></li>
+            <li><span class="values-num">3</span><div><h3 data-i18n="value3Title">Finish</h3><p data-i18n="value3Body">We stay through customer development, implementation, reporting and iteration until the business is running on its own.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 Business -->
+    <section class="chapter" id="business" aria-labelledby="business-title">
+      <header class="chapter-head reveal">
+        <span class="chapter-num">02</span>
+        <span class="chapter-rule"></span>
+        <h2 id="business-title" class="chapter-title" data-i18n="businessChapter">Our business</h2>
+      </header>
+      <div class="panel panel-sage">
+        <p class="panel-display" data-i18n="businessDisplay" aria-hidden="true">Business</p>
+        <div class="panel-inner">
+          <div class="panel-copy reveal">
+            <p class="chapter-label" data-i18n="businessLabel">Two directions, one team</p>
+            <h3 class="panel-title" data-i18n="businessTitle">We work in both directions across the border, with the same people on both sides.</h3>
+            <p class="panel-text" data-i18n="businessText">Overseas companies need Japan explained and executed. Japanese companies need new businesses and AI brought in from outside and made to work. ARCSET is built to do both, because the skills are the same: judgment on both sides, a plan with owners, and the discipline to finish.</p>
+          </div>
+          <div class="orbit reveal" role="group" aria-label="Two client directions">
+            <div class="orbit-circle orbit-left">
+              <p class="orbit-kicker" data-i18n="orbit1Kicker">Overseas → Japan</p>
+              <h4 data-i18n="orbit1Title">Japan market entry</h4>
+              <p data-i18n="orbit1Body">Validate demand, localize the offer, build the pipeline, run the first implementations.</p>
+            </div>
+            <div class="orbit-center" aria-hidden="true">
+              <svg viewBox="0 0 1000 1000"><path d="M104 893A789 789 0 0 1 893 104V384A509 509 0 0 0 384 893Z"/><rect x="613" y="613" width="280" height="280"/></svg>
+            </div>
+            <div class="orbit-circle orbit-right">
+              <p class="orbit-kicker" data-i18n="orbit2Kicker">Japan → New business</p>
+              <h4 data-i18n="orbit2Title">New business and AI adoption</h4>
+              <p data-i18n="orbit2Body">Design the business, bring in the right technology and partners, get it operating in the field.</p>
+            </div>
+            <p class="orbit-caption" data-i18n="orbitCenter">Plan · Sell · Build</p>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="hero-model reveal" aria-label="ARCSET delivery model">
-          <p class="model-label" data-i18n="modelLabel">FROM AMBITION TO EXECUTION</p>
-          <ol>
-            <li><span>01</span><strong data-i18n="modelStrategy">Strategy</strong></li>
-            <li><span>02</span><strong data-i18n="modelLocalize">Localize</strong></li>
-            <li><span>03</span><strong data-i18n="modelExecute">Execute</strong></li>
-            <li><span>04</span><strong data-i18n="modelScale">Scale</strong></li>
+    <!-- 03 Services -->
+    <section class="chapter" id="services" aria-labelledby="services-title">
+      <header class="chapter-head reveal">
+        <span class="chapter-num">03</span>
+        <span class="chapter-rule"></span>
+        <h2 id="services-title" class="chapter-title" data-i18n="servicesChapter">Services</h2>
+      </header>
+      <div class="chapter-body">
+        <p class="chapter-label reveal" data-i18n="servicesLabel">Four capabilities</p>
+        <div class="chapter-content">
+          <p class="statement reveal" data-i18n="servicesIntro">Assembled around where your business is today. Most engagements combine two or more.</p>
+          <ol class="service-rows">
+            <li class="reveal"><span class="row-index">A</span><div><h3 data-i18n="service1Title">Market entry strategy</h3><p data-i18n="service1Body">Market validation, customer segmentation, positioning, pricing, channel design, and a go-to-market plan with decision points built in.</p></div></li>
+            <li class="reveal"><span class="row-index">B</span><div><h3 data-i18n="service2Title">Sales and business development</h3><p data-i18n="service2Body">Target account development, partner sourcing, meetings run in Japanese, commercial follow-through, and weekly pipeline management.</p></div></li>
+            <li class="reveal"><span class="row-index">C</span><div><h3 data-i18n="service3Title">AI and technology adoption</h3><p data-i18n="service3Body">Product localization, voice and generative AI implementation, SaaS and CRM enablement, technical project management, and vendor coordination.</p></div></li>
+            <li class="reveal"><span class="row-index">D</span><div><h3 data-i18n="service4Title">Strategic partnerships and new business</h3><p data-i18n="service4Body">Alliances, joint ventures, reseller and agency arrangements, investment opportunities, and business incubation designed for long-term growth.</p></div></li>
           </ol>
         </div>
       </div>
-      <div class="hero-bottom">
-        <span>ARCSET</span>
-        <span data-i18n="heroTagline">Across Borders. Set Business in Motion.</span>
+    </section>
+
+    <!-- Dark statement panel -->
+    <section class="panel panel-dark" aria-labelledby="oneteam-title">
+      <canvas class="field field-dark" aria-hidden="true"></canvas>
+      <div class="panel-inner panel-inner-dark">
+        <h2 id="oneteam-title" class="dark-title reveal" data-i18n="darkTitle">One team, from the first meeting to go-live.</h2>
+        <dl class="stats">
+          <div class="reveal"><dt data-i18n="stat1Label">Languages</dt><dd>3</dd><p data-i18n="stat1Note">Japanese, English and Chinese, in the room and in the documents.</p></div>
+          <div class="reveal"><dt data-i18n="stat2Label">Directions</dt><dd>2</dd><p data-i18n="stat2Note">Into Japan for overseas companies. Into new business for Japanese companies.</p></div>
+          <div class="reveal"><dt data-i18n="stat3Label">Team</dt><dd>1</dd><p data-i18n="stat3Note">Strategy, sales and implementation, handled by the same people from start to finish.</p></div>
+        </dl>
       </div>
     </section>
 
-    <section class="proof-strip" aria-label="ARCSET at a glance">
-      <div class="proof-item">
-        <span>01</span>
-        <strong data-i18n="proofTokyo">Tokyo-based execution</strong>
-      </div>
-      <div class="proof-item">
-        <span>02</span>
-        <strong data-i18n="proofLanguages">Japanese / English / Chinese</strong>
-      </div>
-      <div class="proof-item">
-        <span>03</span>
-        <strong data-i18n="proofEndToEnd">Strategy through implementation</strong>
-      </div>
-    </section>
-
-    <section class="section about" id="about" aria-labelledby="about-title">
-      <div class="section-grid">
-        <div class="section-heading reveal">
-          <p class="eyebrow eyebrow-dark" data-i18n="aboutEyebrow">WHO WE ARE</p>
-          <h2 id="about-title" data-i18n-html="aboutTitle"><span class="heading-line">A business architect</span><span class="heading-line">for entering Japan.</span></h2>
-        </div>
-        <div class="section-body reveal">
-          <p class="large-copy" data-i18n="aboutLead">Entering Japan takes more than research or translation. It requires a clear market thesis, local commercial judgment, trusted relationships, and disciplined execution.</p>
-          <p data-i18n="aboutBody">ARCSET works as an extension of your team. We design the route to market, localize the offer, open customer and partner conversations, and coordinate technology delivery—so decisions move quickly and strategy turns into action.</p>
-          <div class="not-list">
-            <p data-i18n="aboutNotLabel">We are not simply:</p>
-            <ul>
-              <li data-i18n="aboutNotConsulting">A traditional consulting firm</li>
-              <li data-i18n="aboutNotSales">A sales outsourcing vendor</li>
-              <li data-i18n="aboutNotIT">An IT staffing company</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section services" id="services" aria-labelledby="services-title">
-      <div class="section-intro reveal">
-        <div>
-          <p class="eyebrow eyebrow-dark" data-i18n="servicesEyebrow">CORE SERVICES</p>
-          <h2 id="services-title" data-i18n-html="servicesTitle"><span class="heading-line">One partner.</span><span class="heading-line">Four capabilities.</span></h2>
-        </div>
-        <p data-i18n="servicesIntro">We assemble the right mix of strategy, commercial execution, and technology expertise around your stage of entry.</p>
-      </div>
-
-      <div class="service-list">
-        <article class="service-item reveal">
-          <div class="service-number">01</div>
-          <div class="service-title">
-            <p>MARKET ENTRY &amp; GTM</p>
-            <h3 data-i18n="service1Title">Japan market entry strategy</h3>
-          </div>
-          <p class="service-description" data-i18n="service1Body">Market validation, customer segmentation, positioning, pricing, channel strategy, and a practical go-to-market roadmap.</p>
-        </article>
-        <article class="service-item reveal">
-          <div class="service-number">02</div>
-          <div class="service-title">
-            <p>SALES &amp; BUSINESS DEVELOPMENT</p>
-            <h3 data-i18n="service2Title">Local customer and partner development</h3>
-          </div>
-          <p class="service-description" data-i18n="service2Body">Target account development, partner sourcing, meeting support, commercial follow-through, and pipeline management.</p>
-        </article>
-        <article class="service-item reveal">
-          <div class="service-number">03</div>
-          <div class="service-title">
-            <p>AI &amp; TECHNOLOGY</p>
-            <h3 data-i18n="service3Title">AI and technology implementation</h3>
-          </div>
-          <p class="service-description" data-i18n="service3Body">Product localization, SaaS / CRM / commerce enablement, AI implementation, technical project management, and partner coordination.</p>
-        </article>
-        <article class="service-item reveal">
-          <div class="service-number">04</div>
-          <div class="service-title">
-            <p>STRATEGIC PARTNERSHIPS</p>
-            <h3 data-i18n="service4Title">Business incubation and strategic projects</h3>
-          </div>
-          <p class="service-description" data-i18n="service4Body">Cross-border commerce, strategic alliances, investment opportunities, and new business initiatives designed for long-term growth.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="execution-section" aria-labelledby="execution-title">
-      <div class="execution-inner">
-        <div class="execution-copy reveal">
-          <p class="eyebrow" data-i18n="executionEyebrow">WHY ARCSET</p>
-          <h2 id="execution-title" data-i18n-html="executionTitle"><span class="heading-line">Japan entry is an</span><span class="heading-line">execution challenge.</span></h2>
-          <p data-i18n="executionBody">A promising product can still stall when positioning, sales culture, contracts, delivery, and decision-making are not aligned with the Japanese market. ARCSET closes those gaps as one integrated team.</p>
-        </div>
-        <div class="execution-pillars reveal">
-          <div>
-            <span>01</span>
-            <h3 data-i18n="advantage1Title">Cross-border fluency</h3>
-            <p data-i18n="advantage1Body">We understand the expectations on both sides of the market.</p>
-          </div>
-          <div>
-            <span>02</span>
-            <h3 data-i18n="advantage2Title">Commercial localization</h3>
-            <p data-i18n="advantage2Body">We localize the offer, pricing logic, sales story, and channel model—not just the language.</p>
-          </div>
-          <div>
-            <span>03</span>
-            <h3 data-i18n="advantage3Title">Hands-on execution</h3>
-            <p data-i18n="advantage3Body">We stay involved through customer development, implementation, reporting, and iteration.</p>
-          </div>
+    <!-- 04 Approach -->
+    <section class="chapter" id="approach" aria-labelledby="approach-title">
+      <header class="chapter-head reveal">
+        <span class="chapter-num">04</span>
+        <span class="chapter-rule"></span>
+        <h2 id="approach-title" class="chapter-title" data-i18n="approachChapter">Approach</h2>
+      </header>
+      <div class="chapter-body">
+        <p class="chapter-label reveal" data-i18n="approachLabel">Three phases</p>
+        <div class="chapter-content">
+          <p class="statement reveal" data-i18n="approachIntro">Each phase ends in a decision you can make with evidence rather than optimism.</p>
+          <ol class="phases">
+            <li class="reveal">
+              <span class="phase-num">01</span>
+              <div>
+                <h3 data-i18n="phase1Title">Diagnose</h3>
+                <p data-i18n="phase1Body">Objectives, constraints, market fit, priority customers, competitors and entry risks. Typically four to six weeks.</p>
+                <p class="gate"><span data-i18n="gateLabel">Decision point</span><span data-i18n="phase1Gate">Go or no-go, with the evidence that supports it</span></p>
+              </div>
+            </li>
+            <li class="reveal">
+              <span class="phase-num">02</span>
+              <div>
+                <h3 data-i18n="phase2Title">Design</h3>
+                <p data-i18n="phase2Body">Positioning, go-to-market model, localization, partner terms, team, deliverables, milestones and success measures.</p>
+                <p class="gate"><span data-i18n="gateLabel">Decision point</span><span data-i18n="phase2Gate">An execution plan with budget, scope and owners agreed</span></p>
+              </div>
+            </li>
+            <li class="reveal">
+              <span class="phase-num">03</span>
+              <div>
+                <h3 data-i18n="phase3Title">Execute and scale</h3>
+                <p data-i18n="phase3Body">Customer and partner development, localized materials, implementation management, weekly reporting, and refinement of what works.</p>
+                <p class="gate"><span data-i18n="gateLabel">Decision point</span><span data-i18n="phase3Gate">Pipeline and go-lives measured against targets set in advance</span></p>
+              </div>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
 
-    <section class="section approach" id="approach" aria-labelledby="approach-title">
-      <div class="section-intro reveal">
-        <div>
-          <p class="eyebrow eyebrow-dark" data-i18n="approachEyebrow">HOW WE WORK</p>
-          <h2 id="approach-title" data-i18n-html="approachTitle"><span class="heading-line">A clear path from</span><span class="heading-line">question to growth.</span></h2>
-        </div>
-        <p data-i18n="approachIntro">Every engagement is shaped around the client's goals, stage, and internal capabilities. The process stays transparent and outcome-led.</p>
-      </div>
-      <ol class="process-list">
-        <li class="reveal"><span>01</span><h3 data-i18n="step1Title">Initial discussion</h3><p data-i18n="step1Body">Clarify objectives, current constraints, timing, and decision criteria.</p></li>
-        <li class="reveal"><span>02</span><h3 data-i18n="step2Title">Business diagnosis</h3><p data-i18n="step2Body">Assess market fit, priority customers, competitors, and entry risks.</p></li>
-        <li class="reveal"><span>03</span><h3 data-i18n="step3Title">Strategy design</h3><p data-i18n="step3Body">Define positioning, GTM model, localization, and success measures.</p></li>
-        <li class="reveal"><span>04</span><h3 data-i18n="step4Title">Execution planning</h3><p data-i18n="step4Body">Agree scope, team, deliverables, milestones, and reporting rhythm.</p></li>
-        <li class="reveal"><span>05</span><h3 data-i18n="step5Title">Implementation</h3><p data-i18n="step5Body">Develop customers and partners, localize materials, and manage delivery.</p></li>
-        <li class="reveal"><span>06</span><h3 data-i18n="step6Title">Review and scale</h3><p data-i18n="step6Body">Measure outcomes, refine the strategy, and expand what works.</p></li>
-      </ol>
-    </section>
-
-    <section class="section experience" id="experience" aria-labelledby="experience-title">
-      <div class="experience-layout">
-        <div class="experience-heading reveal">
-          <p class="eyebrow eyebrow-dark" data-i18n="experienceEyebrow">REPRESENTATIVE EXPERIENCE</p>
-          <h2 id="experience-title" data-i18n-html="experienceTitle"><span class="heading-line">Experience where</span><span class="heading-line">business meets AI.</span></h2>
-          <p data-i18n="experienceNote">Selected experience of ARCSET's leadership and delivery network. Client identities are confidential.</p>
-        </div>
-        <div class="experience-list">
-          <article class="reveal"><span>01</span><div><p>AI VOICE SaaS</p><h3 data-i18n="experience1Title">Japan entry for an overseas AI voice solution</h3><p data-i18n="experience1Body">Market entry, partner network development, and adoption support across property, healthcare, hospitality, and BPO use cases.</p></div></article>
-          <article class="reveal"><span>02</span><div><p>PROPERTY OPERATIONS</p><h3 data-i18n="experience2Title">AI-first reception for property management</h3><p data-i18n="experience2Body">Designed AI-supported intake for nights and weekends to improve response coverage and reduce operational load.</p></div></article>
-          <article class="reveal"><span>03</span><div><p>BPO &amp; AUTOMATION</p><h3 data-i18n="experience3Title">AI enablement for contact-center operations</h3><p data-i18n="experience3Body">Combined voice AI, workflow automation, and notification systems to validate AI use in complex service operations.</p></div></article>
-          <article class="reveal"><span>04</span><div><p>CROSS-BORDER AI / IT</p><h3 data-i18n="experience4Title">Japan GTM for overseas technology companies</h3><p data-i18n="experience4Body">Localized offers, built target pipelines, developed partnerships, and advanced real commercial opportunities.</p></div></article>
+    <!-- 05 Experience -->
+    <section class="chapter" id="experience" aria-labelledby="experience-title">
+      <header class="chapter-head reveal">
+        <span class="chapter-num">05</span>
+        <span class="chapter-rule"></span>
+        <h2 id="experience-title" class="chapter-title" data-i18n="experienceChapter">Experience</h2>
+      </header>
+      <div class="chapter-body">
+        <p class="chapter-label reveal" data-i18n="experienceLabel">Representative work</p>
+        <div class="chapter-content">
+          <p class="note reveal" data-i18n="experienceNote">Selected work of ARCSET and its leadership. Client identities are confidential.</p>
+          <ul class="cases">
+            <li class="reveal"><span class="case-tag" data-i18n="case1Sector">Voice AI SaaS, overseas</span><h3 data-i18n="case1Title">Japan entry for an overseas voice AI company</h3><p data-i18n="case1Body">Market entry, partner network development and adoption support across property management, healthcare, hospitality and BPO.</p></li>
+            <li class="reveal"><span class="case-tag" data-i18n="case2Sector">IoT services, Japan</span><h3 data-i18n="case2Title">Outsourced new-business sales for a domestic IoT service company</h3><p data-i18n="case2Body">Dedicated inside sales and field sales team, weekly KPI review from appointment rate to deal conversion, and pipeline reporting to management.</p></li>
+            <li class="reveal"><span class="case-tag" data-i18n="case3Sector">Fintech, Japan</span><h3 data-i18n="case3Title">AI business launch for a domestic fintech company</h3><p data-i18n="case3Body">Business design, partner and technology selection, and program management for a new AI business line, working alongside the client's leadership.</p></li>
+            <li class="reveal"><span class="case-tag" data-i18n="case4Sector">Property management</span><h3 data-i18n="case4Title">AI-first reception for property operations</h3><p data-i18n="case4Body">Designed AI-supported intake for nights and weekends to extend response coverage and reduce operational load.</p></li>
+            <li class="reveal"><span class="case-tag" data-i18n="case5Sector">Contact center and BPO</span><h3 data-i18n="case5Title">AI enablement for contact-center operations</h3><p data-i18n="case5Body">Combined voice AI, workflow automation and notification systems to validate AI in complex service operations.</p></li>
+            <li class="reveal"><span class="case-tag" data-i18n="case6Sector">Cross-border technology</span><h3 data-i18n="case6Title">Japan go-to-market for overseas technology companies</h3><p data-i18n="case6Body">Localized offers, built target pipelines, developed partnerships and advanced live commercial opportunities.</p></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <section class="section company" id="company" aria-labelledby="company-title">
-      <div class="section-heading reveal">
-        <p class="eyebrow eyebrow-dark" data-i18n="companyEyebrow">COMPANY</p>
-        <h2 id="company-title" data-i18n-html="companyTitle"><span class="heading-line">ARCSET Co., Ltd.</span></h2>
+    <!-- 06 Company -->
+    <section class="chapter" id="company" aria-labelledby="company-title">
+      <header class="chapter-head reveal">
+        <span class="chapter-num">06</span>
+        <span class="chapter-rule"></span>
+        <h2 id="company-title" class="chapter-title" data-i18n="companyChapter">Company</h2>
+      </header>
+      <div class="leader">
+        <figure class="leader-photo reveal">
+          <img src="assets/sean-gao.jpg" srcset="assets/sean-gao-600.jpg 600w, assets/sean-gao.jpg 1200w" sizes="(max-width: 1080px) 70vw, 36vw" alt="Sean Gao, Founder and Representative Director of ARCSET" width="1200" height="1500" loading="lazy">
+        </figure>
+        <div class="leader-body">
+          <p class="chapter-label reveal" data-i18n="leadershipLabel">Leadership</p>
+          <h3 class="leader-name reveal"><span data-i18n="repName">Sean Gao</span><small data-i18n="repRole">Founder and Representative Director</small></h3>
+          <p class="leader-statement reveal" data-i18n="repStatement">Twenty years on the seam between Japan and the rest of Asia. First advising, then dealing, then operating.</p>
+          <div class="prose reveal">
+            <p data-i18n="repBio1">Sean came to Japan straight after university, nearly twenty years ago, and has spent his whole career where Japanese companies meet the outside world. At ABeam Consulting he learned how Japanese enterprises choose, buy and run software. At Deloitte Tohmatsu, over nine years and rising to Vice President, he moved to the deal side of that seam: cross-border M&amp;A, joint ventures and fundraising between Japanese and Chinese companies, where the distance between a signed term sheet and a working business is widest.</p>
+            <p data-i18n="repBio2">In 2025 he crossed to the operating side, co-founding the Japanese subsidiary of a voice AI company as Country Manager and taking it from zero to its first enterprise customers and partner network. ARCSET, founded in 2026, is the conclusion he drew from both halves: the plan, the sale and the build belong in the same hands.</p>
+          </div>
+          <p class="leader-creds reveal" data-i18n="repCreds">U.S. CPA · MBA, University of Manchester · Master's, Kyushu University · Bachelor's, Shanghai Jiao Tong University · Chinese, Japanese, English</p>
+        </div>
       </div>
-      <dl class="company-details reveal">
-        <div><dt data-i18n="companyNameLabel">Company name</dt><dd data-i18n="companyName">ARCSET Co., Ltd.</dd></div>
-        <div><dt data-i18n="companyFoundedLabel">Established</dt><dd data-i18n="companyFounded">August 2026</dd></div>
-        <div><dt data-i18n="companyRepresentativeLabel">Founder / Representative Director</dt><dd data-i18n="companyRepresentative">高潜</dd></div>
-        <div><dt data-i18n="companyBusinessLabel">Business</dt><dd data-i18n="companyBusiness">Cross-border business development and AI solutions</dd></div>
-        <div><dt data-i18n="companyCapitalLabel">Capital</dt><dd data-i18n="companyCapital">JPY 9,500,000</dd></div>
-        <div><dt data-i18n="companyAddressLabel">Address</dt><dd data-i18n-html="companyAddress">5F Roppongi KS Building, 3-16-12 Roppongi,<br>Minato-ku, Tokyo 106-0032, Japan</dd></div>
-        <div><dt data-i18n="companyEmailLabel">Contact</dt><dd><a href="mailto:info@arcset.jp">info@arcset.jp</a></dd></div>
-      </dl>
+      <div class="chapter-body chapter-body-tight">
+        <p class="chapter-label reveal" data-i18n="companyLabel">Corporate profile</p>
+        <div class="chapter-content">
+          <dl class="company reveal">
+            <div><dt data-i18n="companyNameLabel">Name</dt><dd data-i18n="companyName">ARCSET Co., Ltd.</dd></div>
+            <div><dt data-i18n="companyFoundedLabel">Established</dt><dd data-i18n="companyFounded">August 2026</dd></div>
+            <div><dt data-i18n="companyRepresentativeLabel">Representative Director</dt><dd data-i18n="companyRepresentative">Sean Gao (高 潜)</dd></div>
+            <div><dt data-i18n="companyBusinessLabel">Business</dt><dd data-i18n="companyBusiness">Cross-border business development and AI solutions</dd></div>
+            <div><dt data-i18n="companyCapitalLabel">Capital</dt><dd data-i18n="companyCapital">JPY 9,500,000</dd></div>
+            <div><dt data-i18n="companyAddressLabel">Address</dt><dd data-i18n-html="companyAddress">Roppongi KS Building 5F, 3-16-12 Roppongi,<br>Minato-ku, Tokyo 106-0032, Japan</dd></div>
+            <div><dt data-i18n="companyEmailLabel">Email</dt><dd><a href="mailto:info@arcset.jp">info@arcset.jp</a></dd></div>
+          </dl>
+        </div>
+      </div>
     </section>
 
-    <section class="contact" aria-labelledby="contact-title">
-      <div class="contact-inner reveal">
-        <p class="eyebrow" data-i18n="contactEyebrow">START A CONVERSATION</p>
-        <h2 id="contact-title" data-i18n-html="contactTitle"><span class="heading-line">Ready to enter</span><span class="heading-line">the Japanese market?</span></h2>
-        <p data-i18n="contactBody">Tell us where you are today and what you want to achieve in Japan. We will help clarify the next practical step.</p>
-        <a class="button button-gold" href="mailto:info@arcset.jp">info@arcset.jp</a>
+    <!-- Contact -->
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="contact-inner">
+        <p class="contact-display reveal" aria-hidden="true">Contact</p>
+        <div class="contact-grid">
+          <p class="chapter-label reveal" data-i18n="contactLabel">Get in touch</p>
+          <div class="reveal">
+            <h2 id="contact-title" data-i18n="contactTitle">Tell us where you are, and where you want to be in Japan.</h2>
+            <p data-i18n="contactBody">A first conversation takes thirty minutes. We will tell you plainly what the next practical step is, and whether we are the right partner for it.</p>
+            <a class="pill pill-large" href="mailto:info@arcset.jp"><span>info@arcset.jp</span><i class="pill-arrow" aria-hidden="true"></i></a>
+          </div>
+        </div>
       </div>
-      <div class="contact-mark" aria-hidden="true">A</div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="footer-brand">
-      <img src="assets/arcset-wordmark-black.jpg" alt="ARCSET">
-      <p data-i18n="footerTagline">Across Borders. Set Business in Motion.</p>
-    </div>
-    <div class="footer-meta">
-      <p>© <span id="current-year">2026</span> ARCSET Co., Ltd.</p>
-      <a href="#top" data-i18n="backToTop">Back to top ↑</a>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="assets/arcset-wordmark-black.png" alt="ARCSET" width="130" height="23">
+        <p data-i18n="footerTagline">Across Borders. Set Business in Motion.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#about" data-i18n="navAbout">About</a>
+        <a href="#business" data-i18n="navBusiness">Business</a>
+        <a href="#services" data-i18n="navServices">Services</a>
+        <a href="#approach" data-i18n="navApproach">Approach</a>
+        <a href="#experience" data-i18n="navExperience">Experience</a>
+        <a href="#company" data-i18n="navCompany">Company</a>
+      </nav>
+      <div class="footer-meta">
+        <p>© <span id="current-year">2026</span> ARCSET Co., Ltd.</p>
+        <a href="#top" data-i18n="backToTop">Top page</a>
+      </div>
     </div>
   </footer>
 
@@ -261,11 +305,9 @@
     "name": "ARCSET Co., Ltd.",
     "alternateName": "ARCSET株式会社",
     "foundingDate": "2026-08",
-    "founder": {
-      "@type": "Person",
-      "name": "高潜"
-    },
+    "founder": { "@type": "Person", "name": "Sean Gao", "alternateName": "高潜" },
     "url": "https://www.arcset.jp/",
+    "logo": "https://www.arcset.jp/assets/arcset-wordmark-black.png",
     "email": "info@arcset.jp",
     "address": {
       "@type": "PostalAddress",
@@ -274,7 +316,8 @@
       "addressLocality": "Minato-ku",
       "addressRegion": "Tokyo",
       "addressCountry": "JP"
-    }
+    },
+    "knowsLanguage": ["ja", "en", "zh"]
   }
   </script>
   <script src="script.js"></script>
