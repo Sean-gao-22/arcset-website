@@ -622,9 +622,19 @@ if (form) {
       if (!res.ok || String(out.success) !== "true") throw new Error("send failed");
       form.reset(); status.textContent = dict.formSent;
     } catch (err) {
-      status.textContent = dict.formError; status.classList.add("is-error");
+      // The AJAX endpoint refuses until the address is activated (and some
+      // networks block it). Fall back to a normal form post, which always works
+      // and returns to this page with ?sent=1.
+      form.classList.remove("is-sending");
+      HTMLFormElement.prototype.submit.call(form);
+      return;
     } finally { form.classList.remove("is-sending"); }
   });
+  // Returning from a normal post
+  if (new URLSearchParams(location.search).get("sent") === "1") {
+    status.textContent = translations[currentLang()].formSent;
+    history.replaceState(null, "", location.pathname + "#contact");
+  }
 }
 
 /* ---------- Approach: a line runs through the phases as you scroll,
