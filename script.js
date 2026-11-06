@@ -7,7 +7,7 @@ const translations = {
     skipLink: "Skip to content", menu: "Menu",
     navAbout: "About", navBusiness: "Business", navServices: "Services", navApproach: "Approach", navExperience: "Experience", navCompany: "Company", navContact: "Contact",
 
-    heroTitle: "Across borders, business in motion.",
+    heroTitle: "Across borders. Set business in motion.",
     heroSub: "Japan entry for global companies. New ventures for Japanese ones.<br>From strategy to signed deals and real-world adoption.",
     heroLead: "ARCSET supports overseas companies entering Japan and Japanese companies launching new businesses and adopting AI. From strategy through sales to implementation, one team sees it through.",
     heroPrimary: "Get in touch", heroSecondary: "Our business",
