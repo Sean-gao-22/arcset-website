@@ -51,13 +51,41 @@
   --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
 }
 
+html[data-palette="c"] {
+  /* Option C: the brand emerald itself as the panel */
+  --panel-bg: var(--emerald);
+  --panel-bg-2: #00704f;
+  --panel-ink: #ffffff;
+  --panel-ink-2: rgba(255, 255, 255, 0.82);
+  --panel-display: rgba(255, 255, 255, 0.92);
+  --panel-circle: rgba(255, 255, 255, 0.5);
+  --panel-left: var(--navy-2);
+  --panel-right: var(--teal-2);
+  --panel-mark: #ffffff;
+  --dark-bg: var(--ink);
+  --dark-accent: var(--mint);
+}
+html[data-palette="d"] {
+  /* Option D: teal panel (Japan market / execution), ink statement */
+  --panel-bg: var(--teal);
+  --panel-bg-2: #00626e;
+  --panel-ink: #ffffff;
+  --panel-ink-2: rgba(255, 255, 255, 0.82);
+  --panel-display: rgba(255, 255, 255, 0.92);
+  --panel-circle: rgba(255, 255, 255, 0.5);
+  --panel-left: var(--navy-2);
+  --panel-right: var(--emerald-2);
+  --panel-mark: #ffffff;
+  --dark-bg: var(--ink);
+  --dark-accent: var(--mint);
+}
 html[data-palette="b"] {
   /* Option B: navy panel for the two directions, deep emerald statement */
   --panel-bg: var(--navy-5);
   --panel-bg-2: #0f2140;
   --panel-ink: #ffffff;
   --panel-ink-2: rgba(255, 255, 255, 0.78);
-  --panel-display: rgba(255, 255, 255, 0.10);
+  --panel-display: rgba(255, 255, 255, 0.92);
   --panel-circle: rgba(255, 255, 255, 0.45);
   --panel-left: var(--navy-2);
   --panel-right: var(--teal-2);
@@ -194,7 +222,10 @@ html:lang(ja) .values h3, html:lang(zh-Hans) .values h3 { font-weight: 400; }
 /* Panels */
 .panel { position: relative; }
 .panel-sage { margin-top: clamp(96px, 10vw, 160px); background: linear-gradient(180deg, var(--panel-bg) 0%, var(--panel-bg-2) 100%); color: var(--panel-ink); }
-.panel-display { position: absolute; left: var(--pad); top: 0; transform: translateY(-58%); font-size: clamp(64px, 11vw, 160px); font-weight: 200; letter-spacing: -0.03em; line-height: 1; color: var(--panel-display); pointer-events: none; }
+.panel-display { position: absolute; left: var(--pad); top: 0; transform: translateY(-58%); font-size: clamp(64px, 11vw, 160px); font-weight: 200; letter-spacing: -0.03em; line-height: 1; color: var(--ink); pointer-events: none; }
+.panel-display::after { content: attr(data-text); position: absolute; left: 0; top: 0; color: var(--panel-display); clip-path: inset(58% 0 0 0); }
+.panel-display { clip-path: none; }
+.panel-display > span { display: block; clip-path: inset(0 0 42% 0); }
 .panel-inner { max-width: var(--max); margin: 0 auto; padding: clamp(72px, 9vw, 128px) var(--pad); display: grid; grid-template-columns: 5fr 7fr; column-gap: var(--pad); align-items: start; }
 .panel-copy .chapter-label { color: var(--panel-ink-2); }
 .panel-copy .chapter-label::before { background: var(--panel-ink-2); }

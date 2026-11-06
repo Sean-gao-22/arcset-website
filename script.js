@@ -222,7 +222,7 @@ const translations = {
 };
 
 /* ---------- Palette (preview switch) ---------- */
-(() => { const q = new URLSearchParams(location.search).get("palette"); if (q === "a" || q === "b") document.documentElement.setAttribute("data-palette", q); })();
+(() => { const q = new URLSearchParams(location.search).get("palette"); if (["a","b","c","d"].includes(q)) document.documentElement.setAttribute("data-palette", q); })();
 
 /* ---------- i18n ---------- */
 const SUPPORTED = ["en", "ja", "zh"];
