@@ -346,6 +346,16 @@ const onScroll = () => header && header.classList.toggle("is-scrolled", window.s
 window.addEventListener("scroll", onScroll, { passive: true }); onScroll();
 const year = document.getElementById("current-year"); if (year) year.textContent = String(new Date().getFullYear());
 
+/* Back to top: handle it directly, because once the URL already ends in #top
+   the browser treats a second click on the same anchor as a no-op. */
+document.querySelectorAll('a[href="#top"]').forEach((a) => {
+  a.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" });
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  });
+});
+
 /* ---------- Reveal on scroll ---------- */
 const revealEls = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window && !reduceMotion) {
