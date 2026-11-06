@@ -314,14 +314,17 @@ if ("IntersectionObserver" in window && !reduceMotion) {
 }
 
 /* ---------- Arc field ----------
-   Long, thin ribbons drifting left to right across the page. Each ribbon keeps
-   its recent path and is redrawn every frame, so the strokes read as continuous
-   arcs rather than dashes. The flow bends slowly over time and leans with the
-   pointer. */
+   Two depths of thin ribbons drift across the page left to right: the ARC.
+   The far layer is fainter and slower, the near layer is darker and quicker,
+   and the two layers scroll at different rates, so the page has depth.
+   Press anywhere and the ribbons nearby bend into a square that forms under
+   the pointer, hold for a moment, then release: the SET. The pointer itself
+   leaves a gentle wake as it moves. */
 function arcField(canvas, opts) {
   const ctx = canvas.getContext("2d");
-  let w = 0, h = 0, dpr = 1, ribbons = [], t = 0, raf = 0, running = false;
-  const mouse = { x: 0.5, y: 0.5, tx: 0.5, ty: 0.5 };
+  let w = 0, h = 0, dpr = 1, ribbons = [], t = 0, raf = 0, running = false, scrollY = 0;
+  const mouse = { x: 0.5, y: 0.5, tx: 0.5, ty: 0.5, px: -1e4, py: -1e4 };
+  const sets = []; // active "SET" points from presses
 
   function resize() {
     const r = canvas.getBoundingClientRect();
@@ -333,18 +336,19 @@ function arcField(canvas, opts) {
   }
   function spawn(anywhere) {
     const accent = Math.random() < opts.accentRatio;
-    const len = Math.round(opts.length * (0.6 + Math.random() * 0.8));
+    const z = Math.random() < 0.55 ? 0.45 + Math.random() * 0.2 : 0.85 + Math.random() * 0.15; // far / near
+    const len = Math.round(opts.length * (0.6 + Math.random() * 0.8) * (0.7 + z * 0.4));
     const r = {
-      pts: [], len, speed: 0.9 + Math.random() * 0.9,
-      width: accent ? 0.9 : 0.4 + Math.random() * 0.4,
+      pts: [], len, z, speed: (0.8 + Math.random() * 0.7) * (0.6 + z * 0.6),
+      width: (accent ? 0.9 : 0.4 + Math.random() * 0.4) * (0.6 + z * 0.6),
       color: accent ? opts.accent : opts.stroke,
-      alpha: (accent ? 0.6 : 0.26) * (0.6 + Math.random() * 0.5),
+      alpha: (accent ? 0.6 : 0.26) * (0.6 + Math.random() * 0.5) * (0.5 + z * 0.6),
       phase: Math.floor(Math.random() * 5) * 1.3, drift: (Math.random() - 0.5) * 0.12,
       age: 0, max: 900 + Math.random() * 1400,
       x: anywhere ? Math.random() * (w + 400) - 200 : -40 - Math.random() * 200,
       y: Math.random() * h * 1.2 - h * 0.1
     };
-    if (anywhere) for (let i = 0; i < len; i++) step(r, false);
+    if (anywhere) for (let i = 0; i < len; i++) step(r);
     return r;
   }
   function seed() {
@@ -354,16 +358,51 @@ function arcField(canvas, opts) {
   function flow(x, y, r) {
     const nx = x / w, ny = y / h;
     const px = (mouse.x - 0.5), py = (mouse.y - 0.5);
-    return Math.sin(ny * 2.0 + t * 0.00018 + r.phase * 0.2) * 0.34
-         + Math.cos(nx * 2.6 - t * 0.00012 + r.phase * 0.1) * 0.26
-         + Math.sin((nx * 0.6 + ny * 1.1) * 2.5 + t * 0.00008) * 0.14
-         + r.drift + px * 0.3 - py * 0.2 - 0.04;
+    let a = Math.sin(ny * 2.0 + t * 0.00018 + r.phase * 0.2) * 0.34
+          + Math.cos(nx * 2.6 - t * 0.00012 + r.phase * 0.1) * 0.26
+          + Math.sin((nx * 0.6 + ny * 1.1) * 2.5 + t * 0.00008) * 0.14
+          + r.drift + px * 0.3 - py * 0.2 - 0.04;
+    // wake: ribbons bend gently around the pointer
+    const dx = x - mouse.px, dy = y - mouse.py, d2 = dx * dx + dy * dy;
+    if (d2 < 160 * 160) { const k = (1 - Math.sqrt(d2) / 160); a += (dy > 0 ? 1 : -1) * k * k * 0.35; }
+    // SET: ribbons near a press turn toward it, then are released
+    for (let i = 0; i < sets.length; i++) {
+      const s = sets[i], sx = x - s.x, sy = y - s.y, d = Math.hypot(sx, sy);
+      if (d < s.radius) {
+        const env = s.pull(t), k = env * (1 - d / s.radius);
+        const toward = Math.atan2(-sy, -sx);
+        // blend the heading toward the point; keep ribbons orbiting rather than piling
+        let diff = toward + 0.9 - a; diff = Math.atan2(Math.sin(diff), Math.cos(diff));
+        a += diff * k * 0.85;
+      }
+    }
+    return a;
   }
-  function step(r, record) {
+  function step(r) {
     const a = flow(r.x, r.y, r);
     r.x += Math.cos(a) * r.speed; r.y += Math.sin(a) * r.speed; r.age++;
     r.pts.push(r.x, r.y);
     if (r.pts.length > r.len * 2) r.pts.splice(0, 2);
+  }
+  function drawSets() {
+    for (let i = sets.length - 1; i >= 0; i--) {
+      const s = sets[i], age = t - s.t0;
+      if (age > s.life) { sets.splice(i, 1); continue; }
+      const grow = Math.min(1, age / 500), fade = age < s.life - 700 ? 1 : (s.life - age) / 700;
+      const ease = 1 - Math.pow(1 - grow, 3), size = 10 + 46 * ease;
+      ctx.save(); ctx.translate(s.x, s.y);
+      // ring that expands once
+      const ring = Math.min(1, age / 1400);
+      ctx.globalAlpha = (1 - ring) * 0.35 * fade; ctx.strokeStyle = opts.setColor; ctx.lineWidth = 1;
+      ctx.beginPath(); ctx.arc(0, 0, 20 + ring * 220, 0, Math.PI * 2); ctx.stroke();
+      // the square: SET
+      ctx.globalAlpha = 0.9 * fade; ctx.lineWidth = 1.2;
+      ctx.strokeRect(-size / 2, -size / 2, size, size);
+      ctx.globalAlpha = 0.9 * fade * ease; ctx.fillStyle = opts.setColor;
+      const inner = size * 0.42; ctx.fillRect(size / 2 - inner, size / 2 - inner, inner, inner);
+      ctx.restore();
+    }
+    ctx.globalAlpha = 1;
   }
   function draw() {
     ctx.clearRect(0, 0, w, h);
@@ -371,26 +410,27 @@ function arcField(canvas, opts) {
     for (let i = 0; i < ribbons.length; i++) {
       const r = ribbons[i]; const p = r.pts; if (p.length < 4) continue;
       const life = Math.min(1, r.age / 180, (r.max - r.age) / 220);
-      // three passes so the tail fades
+      const oy = -scrollY * opts.parallax * (r.z - 0.6); // layers drift apart as the page scrolls
       const n = p.length / 2, cut1 = Math.floor(n * 0.45), cut2 = Math.floor(n * 0.8);
       const segs = [[0, cut1, 0.25], [cut1, cut2, 0.6], [cut2, n - 1, 1]];
       ctx.strokeStyle = r.color; ctx.lineWidth = r.width;
       for (const [a, b, k] of segs) {
         if (b - a < 1) continue;
         ctx.globalAlpha = r.alpha * k * Math.max(0, life);
-        ctx.beginPath(); ctx.moveTo(p[a * 2], p[a * 2 + 1]);
-        for (let j = a + 1; j <= b; j++) ctx.lineTo(p[j * 2], p[j * 2 + 1]);
+        ctx.beginPath(); ctx.moveTo(p[a * 2], p[a * 2 + 1] + oy);
+        for (let j = a + 1; j <= b; j++) ctx.lineTo(p[j * 2], p[j * 2 + 1] + oy);
         ctx.stroke();
       }
     }
     ctx.globalAlpha = 1;
+    drawSets();
   }
   function frame(now) {
     if (!running) return;
     t = now;
     mouse.x += (mouse.tx - mouse.x) * 0.03; mouse.y += (mouse.ty - mouse.y) * 0.03;
     for (let i = 0; i < ribbons.length; i++) {
-      const r = ribbons[i]; step(r, true);
+      const r = ribbons[i]; step(r);
       if (r.age > r.max || r.x > w + r.len * 2 || r.y < -h * 0.3 || r.y > h * 1.3) ribbons[i] = spawn(false);
     }
     draw();
@@ -399,16 +439,30 @@ function arcField(canvas, opts) {
   function start() { if (running) return; running = true; raf = requestAnimationFrame(frame); }
   function stop() { running = false; cancelAnimationFrame(raf); }
   function still() { draw(); }
+  function press(clientX, clientY) {
+    const r = canvas.getBoundingClientRect();
+    const x = clientX - r.left, y = clientY - r.top;
+    if (x < 0 || y < 0 || x > w || y > h) return;
+    const t0 = t, life = 3200;
+    sets.push({ x, y, t0, life, radius: 320, pull: (now) => { const a = now - t0; return a < 300 ? a / 300 : a < life - 900 ? 1 : Math.max(0, (life - a) / 900); } });
+    if (sets.length > 4) sets.shift();
+  }
+  function pointer(clientX, clientY) {
+    const r = canvas.getBoundingClientRect();
+    mouse.px = clientX - r.left; mouse.py = clientY - r.top;
+    mouse.tx = clientX / window.innerWidth; mouse.ty = clientY / window.innerHeight;
+  }
   let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { resize(); if (!running) still(); }, 120); });
-  window.addEventListener("pointermove", (e) => { mouse.tx = e.clientX / window.innerWidth; mouse.ty = e.clientY / window.innerHeight; }, { passive: true });
+  window.addEventListener("scroll", () => { scrollY = window.scrollY; }, { passive: true });
   resize();
-  return { start, stop, still };
+  return { start, stop, still, press, pointer };
 }
 
+const fields = [];
 const bgCanvas = document.getElementById("field");
 if (bgCanvas) {
-  const bg = arcField(bgCanvas, { count: 60, length: 540, accentRatio: 0.16, stroke: "#121212", accent: "#00805c" });
-  bg.still();
+  const bg = arcField(bgCanvas, { count: 60, length: 540, accentRatio: 0.16, stroke: "#121212", accent: "#00805c", setColor: "#00805c", parallax: 0.12 });
+  fields.push(bg); bg.still();
   if (!reduceMotion) {
     bg.start();
     document.addEventListener("visibilitychange", () => (document.hidden ? bg.stop() : bg.start()));
@@ -416,13 +470,20 @@ if (bgCanvas) {
 }
 const darkCanvas = document.querySelector(".field-dark");
 if (darkCanvas) {
-  const dk = arcField(darkCanvas, { count: 40, length: 520, accentRatio: 0.22, stroke: "#ffffff", accent: "#3ddc97" });
-  dk.still();
+  const dk = arcField(darkCanvas, { count: 40, length: 520, accentRatio: 0.22, stroke: "#ffffff", accent: "#3ddc97", setColor: "#3ddc97", parallax: 0 });
+  fields.push(dk); dk.still();
   if (!reduceMotion) {
     if ("IntersectionObserver" in window) {
       new IntersectionObserver((en) => en.forEach((e) => (e.isIntersecting ? dk.start() : dk.stop())), { threshold: 0.02 }).observe(darkCanvas.parentElement);
     } else dk.start();
   }
+}
+if (!reduceMotion) {
+  window.addEventListener("pointermove", (e) => fields.forEach((f) => f.pointer(e.clientX, e.clientY)), { passive: true });
+  window.addEventListener("pointerdown", (e) => {
+    if (e.target.closest("a, button, input, textarea, select")) return;
+    fields.forEach((f) => f.press(e.clientX, e.clientY));
+  }, { passive: true });
 }
 
 /* ---------- Page-load moment ---------- */
