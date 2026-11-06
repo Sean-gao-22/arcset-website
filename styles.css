@@ -3,18 +3,42 @@
    Motion: a live field of arcs behind the page, and one blur-in on the title. */
 
 :root {
-  --paper: #e8eae7;
-  --paper-2: #f2f3f1;
-  --ink: #15181a;
-  --ink-2: #3b4043;
-  --muted: #6d7478;
-  --line: rgba(21, 24, 26, 0.18);
-  --line-strong: rgba(21, 24, 26, 0.6);
-  --emerald: #00805c;
-  --emerald-ink: #0d3c2f;
-  --sage: #adc6bb;   /* emerald #00805c tinted into the paper gray */
-  --sage-2: #9fbab0;
-  --dark: #141b19;
+  /* ARCSET color system (same values as the PowerPoint theme) */
+  --ink: #121212;        /* Ink */
+  --ink-2: #4a4a4a;      /* Gray 5 */
+  --muted: #6b6b6b;      /* Gray 4 */
+  --gray-3: #9a9a9a;     /* Gray 3 */
+  --gray-2: #d9d9d6;     /* Gray 2 */
+  --paper: #f2f2f0;      /* Gray 1 */
+  --paper-2: #ffffff;    /* White */
+  --emerald: #00805c;    /* E4, ARCSET */
+  --emerald-ink: #0e4a37;/* E5 */
+  --emerald-3: #2fa37a;  /* E3 */
+  --emerald-2: #9fd6bd;  /* E2 */
+  --emerald-1: #e6f4ec;  /* E1 */
+  --teal: #00707d;       /* T4, Japan market */
+  --teal-2: #9cd3d9;     /* T2 */
+  --navy: #24497a;       /* N4, overseas clients */
+  --navy-5: #13284a;     /* N5 */
+  --navy-2: #a5b9d6;     /* N2 */
+  --mint: #3ddc97;       /* dark backgrounds only */
+
+  --line: var(--gray-2);
+  --line-strong: var(--gray-3);
+  --dark: var(--ink);
+
+  /* Option A: light emerald panel */
+  --panel-bg: var(--emerald-1);
+  --panel-bg-2: #d9ebe2;
+  --panel-ink: var(--ink);
+  --panel-ink-2: var(--ink-2);
+  --panel-display: var(--paper-2);
+  --panel-circle: rgba(18, 18, 18, 0.35);
+  --panel-left: var(--navy);
+  --panel-right: var(--teal);
+  --panel-mark: var(--emerald);
+  --dark-bg: var(--ink);
+  --dark-accent: var(--mint);
 
   --font-display: "Outfit", "Helvetica Neue", Arial, sans-serif;
   --font-ja: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
@@ -25,6 +49,21 @@
   --max: 1360px;
   --gap: clamp(48px, 9vw, 140px);
   --ease: cubic-bezier(0.2, 0.7, 0.1, 1);
+}
+
+html[data-palette="b"] {
+  /* Option B: navy panel for the two directions, deep emerald statement */
+  --panel-bg: var(--navy-5);
+  --panel-bg-2: #0f2140;
+  --panel-ink: #ffffff;
+  --panel-ink-2: rgba(255, 255, 255, 0.78);
+  --panel-display: rgba(255, 255, 255, 0.10);
+  --panel-circle: rgba(255, 255, 255, 0.45);
+  --panel-left: var(--navy-2);
+  --panel-right: var(--teal-2);
+  --panel-mark: var(--mint);
+  --dark-bg: var(--emerald-ink);
+  --dark-accent: var(--mint);
 }
 
 * { box-sizing: border-box; }
@@ -60,7 +99,7 @@ ol, ul, dl { margin: 0; padding: 0; list-style: none; }
 
 /* Header */
 .site-header { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--header-h); transition: background-color 0.3s, backdrop-filter 0.3s; }
-.site-header.is-scrolled { background: rgba(232, 234, 231, 0.82); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+.site-header.is-scrolled { background: rgba(242, 242, 240, 0.84); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
 .header-inner { max-width: var(--max); margin: 0 auto; height: 100%; padding: 0 var(--pad); display: grid; grid-template-columns: auto auto 1fr; align-items: center; column-gap: 28px; }
 .brand img { width: 140px; }
 
@@ -154,29 +193,33 @@ html:lang(ja) .values h3, html:lang(zh-Hans) .values h3 { font-weight: 400; }
 
 /* Panels */
 .panel { position: relative; }
-.panel-sage { margin-top: clamp(96px, 10vw, 160px); background: linear-gradient(180deg, var(--sage) 0%, var(--sage-2) 100%); color: var(--ink); }
-.panel-display { position: absolute; left: var(--pad); top: 0; transform: translateY(-58%); font-size: clamp(64px, 11vw, 160px); font-weight: 200; letter-spacing: -0.03em; line-height: 1; color: var(--paper-2); pointer-events: none; }
+.panel-sage { margin-top: clamp(96px, 10vw, 160px); background: linear-gradient(180deg, var(--panel-bg) 0%, var(--panel-bg-2) 100%); color: var(--panel-ink); }
+.panel-display { position: absolute; left: var(--pad); top: 0; transform: translateY(-58%); font-size: clamp(64px, 11vw, 160px); font-weight: 200; letter-spacing: -0.03em; line-height: 1; color: var(--panel-display); pointer-events: none; }
 .panel-inner { max-width: var(--max); margin: 0 auto; padding: clamp(72px, 9vw, 128px) var(--pad); display: grid; grid-template-columns: 5fr 7fr; column-gap: var(--pad); align-items: start; }
-.panel-copy .chapter-label { color: var(--ink-2); }
-.panel-copy .chapter-label::before { background: var(--ink-2); }
+.panel-copy .chapter-label { color: var(--panel-ink-2); }
+.panel-copy .chapter-label::before { background: var(--panel-ink-2); }
 .panel-title { margin-top: 20px; font-size: clamp(24px, 2.4vw, 34px); line-height: 1.3; max-width: 22ch; }
 html:lang(ja) .panel-title, html:lang(zh-Hans) .panel-title { max-width: 17em; font-size: clamp(22px, 2vw, 30px); }
-.panel-text { margin-top: 24px; font-size: 14.5px; color: var(--ink-2); max-width: 48ch; }
+.panel-text { margin-top: 24px; font-size: 14.5px; color: var(--panel-ink-2); max-width: 48ch; }
 html:lang(ja) .panel-text, html:lang(zh-Hans) .panel-text { max-width: 34em; }
 
 /* Orbit: two overlapping circles with the mark in the middle */
 .orbit { position: relative; display: grid; grid-template-columns: 1fr 1fr; align-items: center; }
-.orbit-circle { aspect-ratio: 1; border-radius: 50%; border: 1px solid rgba(21,24,26,0.45); padding: 14% 12%; display: flex; flex-direction: column; justify-content: center; text-align: center; background: rgba(242,243,241,0.12); }
+.orbit-circle { aspect-ratio: 1; border-radius: 50%; border: 1px solid var(--panel-circle); padding: 14% 12%; display: flex; flex-direction: column; justify-content: center; text-align: center; }
+.orbit-left { border-color: var(--panel-left); }
+.orbit-right { border-color: var(--panel-right); }
 .orbit-left { margin-right: -9%; padding: 14% 24% 14% 11%; } .orbit-right { margin-left: -9%; padding: 14% 11% 14% 24%; }
-.orbit-kicker { font-size: 11px; letter-spacing: 0.18em; color: var(--emerald-ink); }
+.orbit-kicker { font-size: 11px; letter-spacing: 0.18em; }
+.orbit-left .orbit-kicker { color: var(--panel-left); }
+.orbit-right .orbit-kicker { color: var(--panel-right); }
 .orbit h4 { margin-top: 10px; font-size: clamp(17px, 1.5vw, 21px); font-weight: 400; }
-.orbit-circle > p:last-child { margin-top: 10px; font-size: 12.5px; line-height: 1.65; color: var(--ink-2); }
+.orbit-circle > p:last-child { margin-top: 10px; font-size: 12.5px; line-height: 1.65; color: var(--panel-ink-2); }
 .orbit-center { position: absolute; left: 50%; top: calc(50% - 16px); transform: translate(-50%, -50%); display: flex; flex-direction: column; align-items: center; gap: 0; width: 60px; }
-.orbit-center svg { width: 40px; fill: var(--ink); }
-.orbit-caption { grid-column: 1 / -1; margin-top: 18px; text-align: center; font-size: 11px; letter-spacing: 0.2em; color: var(--ink-2); }
+.orbit-center svg { width: 40px; fill: var(--panel-mark); }
+.orbit-caption { grid-column: 1 / -1; margin-top: 18px; text-align: center; font-size: 11px; letter-spacing: 0.2em; color: var(--panel-ink-2); }
 
 /* Dark statement */
-.panel-dark { margin-top: var(--gap); background: var(--dark); color: #eef1ef; overflow: hidden; }
+.panel-dark { margin-top: var(--gap); background: var(--dark-bg); color: #f2f2f0; overflow: hidden; }
 .panel-inner-dark { display: grid; grid-template-columns: 5fr 7fr; position: relative; z-index: 1; }
 .dark-title { font-size: clamp(34px, 4.2vw, 60px); font-weight: 200; line-height: 1.1; letter-spacing: -0.02em; max-width: 12ch; }
 html:lang(ja) .dark-title, html:lang(zh-Hans) .dark-title { font-weight: 300; max-width: 12em; line-height: 1.3; font-size: clamp(30px, 3.4vw, 50px); }

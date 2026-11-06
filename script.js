@@ -8,15 +8,15 @@ const translations = {
     navAbout: "About", navBusiness: "Business", navServices: "Services", navApproach: "Approach", navExperience: "Experience", navCompany: "Company", navContact: "Contact",
 
     heroTitle: "Across Borders. Set Business in Motion.",
-    heroSub: "Cross-border business development<br>and AI solutions, from Tokyo.",
+    heroSub: "Cross-border business development<br>and AI solutions. Based in Tokyo.",
     heroLead: "ARCSET supports overseas companies entering Japan and Japanese companies launching new businesses and adopting AI. From strategy through sales to implementation, one team sees it through.",
     heroPrimary: "Get in touch", heroSecondary: "Our business",
 
     aboutChapter: "Who we are", aboutLabel: "About ARCSET",
     aboutTitle: "The team that plans it also sells it, and stays until it works.",
-    aboutLead: "Most market entries and new ventures do not fail on the idea. They fail in between: between the strategy and the sales team, between the contract and the delivery, between headquarters and the people on the ground in Japan.",
-    aboutBody: "ARCSET closes those gaps. The same team that designs the route to market opens the customer conversations, adapts the offer for Japan, and stays involved until the system is live and the results are reported. We work in Japanese, English and Chinese, and we understand how decisions are made on both sides.",
-    value1Title: "Cross", value1Body: "We work across the borders between countries, industries, organizations and technologies, and we understand the expectations on both sides.",
+    aboutLead: "Most market entries and new ventures don't fail on the idea. They fail in the gaps: between strategy and sales, between the contract and the delivery, between headquarters and the team on the ground in Japan.",
+    aboutBody: "ARCSET closes those gaps. The same team that designs the route to market opens the customer conversations, adapts the offer for Japan, and stays involved until the system is live and the results are in. We work in Japanese, English and Chinese, and we understand how decisions are made on both sides of the border.",
+    value1Title: "Cross", value1Body: "We work across borders between countries, industries, organizations and technologies, and we understand what each side expects.",
     value2Title: "Structure", value2Body: "Advice turns into a plan with clear owners, deliverables, milestones and a reporting rhythm.",
     value3Title: "Finish", value3Body: "We stay through customer development, implementation and reporting until the business runs on its own.",
 
@@ -59,7 +59,7 @@ const translations = {
     repName: "Sean Gao", repRole: "Founder and Representative Director",
     repStatement: "Nearly twenty years in Japan, building businesses between Japan and the rest of Asia.",
     repBio1: "Sean moved to Japan after graduating from Shanghai Jiao Tong University. He began his career at ABeam Consulting in CRM and strategy consulting, and in 2016 joined Deloitte Tohmatsu, where as Vice President he led cross-border M&A, joint ventures and fundraising, including a Japan–China transaction of more than US$5 billion. He holds an MBA from the University of Manchester and is a U.S. CPA.",
-    repBio2: "In 2025 he co-founded the Japanese subsidiary of a voice AI company and, as Country Manager, led its launch in the Japanese market. He founded ARCSET in 2026. Having worked as the advisor, the dealmaker and the operator, he built ARCSET around a single principle: the people who plan a business should also sell it and see it through to launch.",
+    repBio2: "In 2025 he co-founded the Japanese subsidiary of a voice AI company and, as Country Manager, led its launch in the Japanese market. He founded ARCSET in 2026. Having been the advisor, the dealmaker and the operator in turn, he built ARCSET on one principle: the people who plan a business should also sell it and see it through to launch.",
     companyNameLabel: "Company name", companyName: "ARCSET Co., Ltd.",
     companyFoundedLabel: "Established", companyFounded: "August 2026",
     companyRepresentativeLabel: "Representative Director", companyRepresentative: "Sean Gao (高 潜)",
@@ -71,7 +71,7 @@ const translations = {
     contactLabel: "Get in touch",
     contactTitle: "Let's talk about your business in Japan.",
     contactBody: "Tell us where you are today and what you want to achieve. In a first conversation of about thirty minutes, we will give you our honest view of the next practical step.",
-    footerTagline: "Across Borders. Set Business in Motion.", backToTop: "Top page"
+    footerTagline: "Across Borders. Set Business in Motion.", backToTop: "Back to top"
   },
 
   ja: {
@@ -81,17 +81,17 @@ const translations = {
     navAbout: "私たちについて", navBusiness: "事業内容", navServices: "サービス", navApproach: "進め方", navExperience: "実績", navCompany: "会社概要", navContact: "お問い合わせ",
 
     heroTitle: "越境の事業を、動かす。",
-    heroSub: "越境の事業開発とAIソリューション。<br>東京から。",
+    heroSub: "越境の事業開発とAIソリューション。<br>東京を拠点に。",
     heroLead: "ARCSETは、海外企業の日本進出と、日本企業の新規事業・AI導入を支援しています。戦略の立案から営業、導入まで、同じチームが一貫して担います。",
     heroPrimary: "お問い合わせ", heroSecondary: "事業内容を見る",
 
     aboutChapter: "私たちについて", aboutLabel: "ARCSETとは",
     aboutTitle: "計画した人が、自ら売り、導入まで見届ける。",
-    aboutLead: "市場参入や新規事業がうまくいかない原因は、アイデアそのものよりも、その「あいだ」にあることがほとんどです。戦略と営業のあいだ、契約と導入のあいだ、本社と日本の現場のあいだ。そこで話が途切れてしまいます。",
-    aboutBody: "ARCSETは、その「あいだ」を埋めます。市場参入の道筋を描いたチームが、そのまま顧客との対話を始め、商材を日本市場に合わせて組み直し、システムが稼働して成果が報告されるまで伴走します。日本語・英語・中国語で業務を行い、双方の意思決定の進め方を理解しています。",
-    value1Title: "越える", value1Body: "国、業界、組織、技術の境界を越えて仕事をします。双方の前提や期待を理解したうえで、間に立ちます。",
+    aboutLead: "市場参入や新規事業がうまくいかない原因の多くは、アイデアそのものではなく、工程と工程の「あいだ」にあります。戦略と営業のあいだ、契約と導入のあいだ、本社と日本の現場のあいだ。そこで話が途切れてしまうのです。",
+    aboutBody: "ARCSETは、その「あいだ」を埋めます。市場参入の道筋を描いたチームが、そのまま顧客との対話を始め、商材を日本市場に合わせて組み直し、システムが稼働して成果が出るまで伴走します。日本語・英語・中国語で業務を行い、日本側と海外側、それぞれの意思決定の進め方を理解しています。",
+    value1Title: "越える", value1Body: "国、業界、組織、技術の境界を越えて動きます。双方の前提と期待を理解したうえで、そのあいだに立ちます。",
     value2Title: "仕組みにする", value2Body: "助言で終わらせず、担当者・成果物・マイルストーン・報告のリズムを備えた計画に落とし込みます。",
-    value3Title: "やりきる", value3Body: "顧客開拓、導入、報告まで、事業が自走する状態になるまで関わり続けます。",
+    value3Title: "やりきる", value3Body: "顧客開拓から導入、報告まで。事業が自走する状態になるまで、関わり続けます。",
 
     businessChapter: "事業内容", businessDisplay: "Business", businessLabel: "2つの方向、1つのチーム",
     businessTitle: "国境をまたぐ事業を、双方向で支援します。",
@@ -102,7 +102,7 @@ const translations = {
 
     servicesChapter: "サービス", servicesLabel: "4つの機能",
     servicesIntro: "お客様の事業の現在地に合わせて、4つの機能を組み合わせて提供します。多くの案件では、2つ以上を組み合わせて進めています。",
-    service1Title: "市場参入戦略", service1Body: "市場検証、顧客セグメンテーション、ポジショニング、価格設計、チャネル設計、そして判断点を明確にした参入計画の策定。",
+    service1Title: "市場参入戦略", service1Body: "市場検証、顧客セグメンテーション、ポジショニング、価格設計、チャネル設計、判断点を明確にした参入計画の策定。",
     service2Title: "営業・事業開発", service2Body: "ターゲット企業の開拓、パートナー探索、日本語での商談対応、受注に向けたフォロー、週次のパイプライン管理。",
     service3Title: "AI・技術導入", service3Body: "プロダクトのローカライズ、音声AI・生成AIの導入、SaaS・CRMの展開、技術プロジェクトの管理、ベンダーとの調整。",
     service4Title: "戦略的提携・新規事業", service4Body: "アライアンス、合弁、販売代理店契約、投資機会の検討、長期的な成長を見据えた事業インキュベーション。",
@@ -115,7 +115,7 @@ const translations = {
     approachChapter: "進め方", approachLabel: "3つのフェーズ",
     approachIntro: "3つのフェーズで進めます。各フェーズの終わりには、根拠にもとづいて次の判断ができる状態を整えます。",
     gateLabel: "判断点",
-    phase1Title: "診断", phase1Body: "目的、制約、市場との適合性、優先顧客、競合、リスクを確認します。期間は4〜6週間が目安です。", phase1Gate: "根拠にもとづく、進める・見送るの判断",
+    phase1Title: "診断", phase1Body: "目的、制約、市場との適合性、優先顧客、競合、リスクを確認します。期間は4〜6週間が目安です。", phase1Gate: "根拠にもとづくGo／No-Goの判断",
     phase2Title: "設計", phase2Body: "ポジショニング、参入モデル、ローカライズ、提携条件、体制、成果物、マイルストーン、成功指標を定めます。", phase2Gate: "予算・範囲・担当者を合意した実行計画",
     phase3Title: "実行・拡大", phase3Body: "顧客・パートナーの開拓、資料のローカライズ、導入の管理、週次の報告を行い、効果のある施策を広げていきます。", phase3Gate: "合意した目標に対する、パイプラインと立ち上げの実績",
 
@@ -154,15 +154,15 @@ const translations = {
     navAbout: "关于我们", navBusiness: "业务介绍", navServices: "服务内容", navApproach: "合作方式", navExperience: "项目经验", navCompany: "公司概要", navContact: "联系我们",
 
     heroTitle: "跨越边界，让事业真正运转起来。",
-    heroSub: "跨境事业开发与 AI 解决方案。<br>从东京出发。",
+    heroSub: "跨境事业开发与 AI 解决方案。<br>立足东京。",
     heroLead: "ARCSET 为进入日本市场的海外企业，以及开拓新业务、导入 AI 的日本企业提供支持。从战略制定、销售到落地实施，由同一支团队全程负责。",
     heroPrimary: "联系我们", heroSecondary: "了解业务",
 
     aboutChapter: "关于我们", aboutLabel: "ARCSET 是谁",
     aboutTitle: "做计划的人，自己去卖，并且负责到落地。",
-    aboutLead: "市场进入和新业务的失败，很少是因为想法本身，更多出在“中间环节”：战略与销售之间、合同与交付之间、总部与日本一线之间。信息往往就断在这些地方。",
-    aboutBody: "ARCSET 要做的，就是补上这些环节。规划市场进入路径的团队，会亲自去开展客户沟通，把产品和方案调整成适合日本市场的形态，并一直跟进到系统上线、成果汇报为止。我们以日语、英语和中文工作，了解双方各自的决策方式。",
-    value1Title: "跨越", value1Body: "跨越国家、行业、组织与技术之间的边界，理解双方的前提与期待，站在中间推动事情。",
+    aboutLead: "市场进入和新业务做不成，很少是因为想法本身，问题大多出在“中间环节”：战略与销售之间、合同与交付之间、总部与日本一线之间。事情往往就断在这些地方。",
+    aboutBody: "ARCSET 的工作，就是把这些环节接起来。规划市场进入路径的团队，会亲自去开展客户沟通，把产品和方案调整成适合日本市场的形态，并一直跟进到系统上线、看到成果为止。我们用日语、英语和中文工作，了解日本和海外双方各自的决策方式。",
+    value1Title: "跨越", value1Body: "跨越国家、行业、组织与技术之间的边界，理解双方的前提与期待，并站在中间把事情推动起来。",
     value2Title: "形成机制", value2Body: "不止于建议，而是落实为有负责人、交付物、里程碑和汇报节奏的计划。",
     value3Title: "做到底", value3Body: "从客户开拓、落地实施到成果汇报，一直参与到业务能够自行运转为止。",
 
@@ -181,7 +181,7 @@ const translations = {
     service4Title: "战略合作与新业务", service4Body: "联盟、合资、经销代理协议、投资机会评估，以及面向长期增长的业务孵化。",
 
     darkTitle: "从第一次会面到正式上线，同一支团队。",
-    stat1Label: "语言", stat1Note: "日语、英语、中文，会议和文件都能覆盖。",
+    stat1Label: "语言", stat1Note: "日语、英语、中文。无论是会议，还是文件。",
     stat2Label: "方向", stat2Note: "海外企业进入日本，日本企业进入新业务。",
     stat3Label: "团队", stat3Note: "战略、销售、落地，自始至终由同一批人负责。",
 
@@ -202,24 +202,27 @@ const translations = {
     case6Sector: "跨境科技", case6Title: "海外科技公司的日本市场开拓", case6Body: "方案本地化、目标客户管线搭建、合作伙伴开拓，推进实际商机。",
 
     companyChapter: "公司概要", leadershipLabel: "代表", companyLabel: "公司信息",
-    repName: "高潜", repRole: "创始人 · 代表取缔役",
+    repName: "高潜", repRole: "创始人 · 代表董事",
     repStatement: "来日本近二十年，一直在日本与海外之间做事业。",
     repBio1: "高潜毕业于上海交通大学后来到日本。职业生涯始于 ABeam Consulting，从事 CRM 与战略咨询；2016 年加入德勤 Deloitte Tohmatsu，以副总裁身份主导了多个跨境并购、合资设立与融资项目，其中包括一笔规模超过 50 亿美元的中日交易。拥有曼彻斯特大学 MBA 学位，美国注册会计师。",
     repBio2: "2025 年，他联合创办一家语音 AI 公司的日本法人，并以国家经理身份带领其在日本市场完成从零到一的落地。2026 年创立 ARCSET 株式会社。做过顾问、做过交易、也亲手运营过业务——正是这三段经历，让他把 ARCSET 建立在一个原则上：做计划的人，要自己去卖，并且负责到落地。",
     companyNameLabel: "公司名称", companyName: "ARCSET株式会社",
     companyFoundedLabel: "成立", companyFounded: "2026 年 8 月",
-    companyRepresentativeLabel: "代表取缔役", companyRepresentative: "高潜",
+    companyRepresentativeLabel: "代表董事", companyRepresentative: "高潜",
     companyBusinessLabel: "业务内容", companyBusiness: "跨境事业开发与 AI 解决方案",
     companyCapitalLabel: "注册资本", companyCapital: "950 万日元",
     companyAddressLabel: "地址", companyAddress: "〒106-0032<br>东京都港区六本木3-16-12 六本木KS大厦5层",
     companyEmailLabel: "邮箱",
 
     contactLabel: "联系我们",
-    contactTitle: "关于在日本的业务，欢迎随时与我们聊聊。",
+    contactTitle: "关于在日本的业务，欢迎随时与我们联系。",
     contactBody: "告诉我们您目前的情况和想达成的目标。首次沟通约三十分钟，我们会坦率地给出下一步最现实的建议。",
     footerTagline: "Across Borders. Set Business in Motion.", backToTop: "回到顶部"
   }
 };
+
+/* ---------- Palette (preview switch) ---------- */
+(() => { const q = new URLSearchParams(location.search).get("palette"); if (q === "a" || q === "b") document.documentElement.setAttribute("data-palette", q); })();
 
 /* ---------- i18n ---------- */
 const SUPPORTED = ["en", "ja", "zh"];
@@ -404,7 +407,7 @@ function arcField(canvas, opts) {
 
 const bgCanvas = document.getElementById("field");
 if (bgCanvas) {
-  const bg = arcField(bgCanvas, { count: 60, length: 540, accentRatio: 0.16, stroke: "#15181a", accent: "#00805c" });
+  const bg = arcField(bgCanvas, { count: 60, length: 540, accentRatio: 0.16, stroke: "#121212", accent: "#00805c" });
   bg.still();
   if (!reduceMotion) {
     bg.start();
@@ -413,7 +416,7 @@ if (bgCanvas) {
 }
 const darkCanvas = document.querySelector(".field-dark");
 if (darkCanvas) {
-  const dk = arcField(darkCanvas, { count: 40, length: 520, accentRatio: 0.22, stroke: "#ffffff", accent: "#2fb48d" });
+  const dk = arcField(darkCanvas, { count: 40, length: 520, accentRatio: 0.22, stroke: "#ffffff", accent: "#3ddc97" });
   dk.still();
   if (!reduceMotion) {
     if ("IntersectionObserver" in window) {
