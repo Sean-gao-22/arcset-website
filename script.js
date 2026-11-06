@@ -70,7 +70,7 @@ const translations = {
 
     newsChapter: "News", newsLabel: "Updates", navNews: "News",
     formCompany: "Company", formName: "Name", formEmail: "Email", formMessage: "What would you like to discuss?", formSubmit: "Send", formAlt: "or email",
-    formSent: "Thank you. We will reply within two business days.", formError: "The message could not be sent. Please email us directly.", formInvalid: "Please fill in all fields.",
+    formSent: "Thank you. We will reply within two business days.", formError: "The form is temporarily unavailable.", formMailApp: "Open in your mail app", formInvalid: "Please fill in all fields.",
     contactLabel: "Get in touch",
     contactTitle: "Let's talk about your business in Japan.",
     contactBody: "Tell us where you are today and what you want to achieve. In a first conversation of about thirty minutes, we will give you our honest view of the next practical step.",
@@ -146,7 +146,7 @@ const translations = {
 
     newsChapter: "お知らせ", newsLabel: "最新情報", navNews: "お知らせ",
     formCompany: "会社名", formName: "お名前", formEmail: "メールアドレス", formMessage: "ご相談内容", formSubmit: "送信する", formAlt: "またはメールで",
-    formSent: "お問い合わせありがとうございます。2営業日以内にご返信いたします。", formError: "送信できませんでした。お手数ですが、メールにてご連絡ください。", formInvalid: "すべての項目をご入力ください。",
+    formSent: "お問い合わせありがとうございます。2営業日以内にご返信いたします。", formError: "現在フォームから送信できません。", formMailApp: "メールアプリで送信する", formInvalid: "すべての項目をご入力ください。",
     contactLabel: "お問い合わせ",
     contactTitle: "日本での事業について、お気軽にご相談ください。",
     contactBody: "現在の状況と目指す姿をお聞かせください。初回は30分ほどのご相談で、次に取るべき現実的な一歩を率直にお伝えします。",
@@ -222,7 +222,7 @@ const translations = {
 
     newsChapter: "公告", newsLabel: "最新动态", navNews: "公告",
     formCompany: "公司名称", formName: "姓名", formEmail: "邮箱", formMessage: "想聊的内容", formSubmit: "发送", formAlt: "或发邮件至",
-    formSent: "感谢您的来信，我们会在两个工作日内回复。", formError: "发送失败，请直接发送邮件与我们联系。", formInvalid: "请填写所有项目。",
+    formSent: "感谢您的来信，我们会在两个工作日内回复。", formError: "表单暂时无法发送。", formMailApp: "用邮件应用发送", formInvalid: "请填写所有项目。",
     contactLabel: "联系我们",
     contactTitle: "关于在日本的业务，欢迎随时与我们联系。",
     contactBody: "告诉我们您目前的情况和想达成的目标。首次沟通约三十分钟，我们会坦率地给出下一步最现实的建议。",
@@ -625,8 +625,15 @@ if (form) {
       // The AJAX endpoint refuses until the address is activated (and some
       // networks block it). Fall back to a normal form post, which always works
       // and returns to this page with ?sent=1.
-      form.classList.remove("is-sending");
-      HTMLFormElement.prototype.submit.call(form);
+      // Never send visitors to a broken third-party page: hand the message to
+      // their mail app instead, already filled in, so nothing they typed is lost.
+      const body = `${dict.formCompany}: ${data.company}\n${dict.formName}: ${data.name}\n${dict.formEmail}: ${data.email}\n\n${data.message}`;
+      status.innerHTML = "";
+      status.append(document.createTextNode(dict.formError + " "));
+      const a = document.createElement("a");
+      a.href = `mailto:info@arcset.jp?subject=${encodeURIComponent("[arcset.jp] " + data.company)}&body=${encodeURIComponent(body)}`;
+      a.textContent = dict.formMailApp; a.style.textDecoration = "underline";
+      status.append(a); status.classList.add("is-error");
       return;
     } finally { form.classList.remove("is-sending"); }
   });
