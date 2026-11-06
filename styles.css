@@ -117,6 +117,7 @@ html:lang(ja) :is(h1, h2, h3, h4), html:lang(zh-Hans) :is(h1, h2, h3, h4) { font
 ol, ul, dl { margin: 0; padding: 0; list-style: none; }
 :focus-visible { outline: 2px solid var(--emerald); outline-offset: 4px; }
 
+.top-anchor { position: absolute; top: 0; left: 0; width: 1px; height: 1px; }
 .skip-link { position: fixed; left: 16px; top: 12px; z-index: 1000; padding: 10px 14px; background: var(--ink); color: #fff; transform: translateY(-150%); }
 .skip-link:focus { transform: translateY(0); }
 
