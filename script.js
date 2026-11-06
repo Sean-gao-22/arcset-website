@@ -79,13 +79,13 @@ const translations = {
 
   ja: {
     pageTitle: "ARCSET株式会社 | 越境の事業開発とAIソリューション",
-    pageDescription: "境界を越えて、事業を動かす。ARCSETは、海外企業の日本進出と、日本企業の新規事業・AI導入を、戦略立案から営業、導入まで一貫して支援する東京のパートナーです。",
+    pageDescription: "境界を越えて、事業を動かす。ARCSETは、海外企業の日本参入と、日本企業の新規事業・AI導入を、戦略立案から営業、導入まで一貫して支援する東京のパートナーです。",
     skipLink: "本文へ移動", menu: "メニュー",
     navAbout: "私たちについて", navBusiness: "事業内容", navServices: "サービス", navApproach: "進め方", navExperience: "実績", navCompany: "会社概要", navContact: "お問い合わせ",
 
     heroTitle: "境界を越えて、事業を動かす。",
-    heroSub: "越境の事業開発とAIソリューション。<br>東京を拠点に。",
-    heroLead: "ARCSETは、海外企業の日本進出と、日本企業の新規事業・AI導入を支援しています。戦略の立案から営業、導入まで、同じチームが一貫して担います。",
+    heroSub: "海外企業の日本参入と、日本企業の新規事業を。<br>戦略から受注、現場への導入まで。",
+    heroLead: "ARCSETは、海外企業の日本参入と、日本企業の新規事業・AI導入を支援しています。戦略の立案から営業、導入まで、同じチームが一貫して担います。",
     heroPrimary: "お問い合わせ", heroSecondary: "事業内容を見る",
 
     aboutChapter: "私たちについて", aboutLabel: "ARCSETとは",
