@@ -614,17 +614,17 @@ if (form) {
     status.classList.remove("is-error");
     if (!form.checkValidity()) { status.textContent = dict.formInvalid; status.classList.add("is-error"); form.reportValidity(); return; }
     const data = Object.fromEntries(new FormData(form).entries());
-    data._subject = "[arcset.jp] お問い合わせ: " + data.company;
+    if (data.botcheck) return; // honeypot
+    delete data.botcheck; delete data.redirect;
+    data.subject = "[arcset.jp] お問い合わせ: " + data.company + " / " + data.name;
+    data.language = currentLang();
     form.classList.add("is-sending"); status.textContent = "";
     try {
-      const res = await fetch("https://formsubmit.co/ajax/info@arcset.jp", { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) });
+      const res = await fetch("https://api.web3forms.com/submit", { method: "POST", headers: { "Content-Type": "application/json", "Accept": "application/json" }, body: JSON.stringify(data) });
       const out = await res.json();
-      if (!res.ok || String(out.success) !== "true") throw new Error("send failed");
+      if (!res.ok || out.success !== true) throw new Error(out.message || "send failed");
       form.reset(); status.textContent = dict.formSent;
     } catch (err) {
-      // The AJAX endpoint refuses until the address is activated (and some
-      // networks block it). Fall back to a normal form post, which always works
-      // and returns to this page with ?sent=1.
       // Never send visitors to a broken third-party page: hand the message to
       // their mail app instead, already filled in, so nothing they typed is lost.
       const body = `${dict.formCompany}: ${data.company}\n${dict.formName}: ${data.name}\n${dict.formEmail}: ${data.email}\n\n${data.message}`;
