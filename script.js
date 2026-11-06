@@ -7,8 +7,8 @@ const translations = {
     skipLink: "Skip to content", menu: "Menu",
     navAbout: "About", navBusiness: "Business", navServices: "Services", navApproach: "Approach", navExperience: "Experience", navCompany: "Company", navContact: "Contact",
 
-    heroTitle: "Across Borders. Set Business in Motion.",
-    heroSub: "Cross-border business development<br>and AI solutions. Based in Tokyo.",
+    heroTitle: "Across borders, business in motion.",
+    heroSub: "Japan entry for global companies. New ventures for Japanese ones.<br>From strategy to signed deals and real-world adoption.",
     heroLead: "ARCSET supports overseas companies entering Japan and Japanese companies launching new businesses and adopting AI. From strategy through sales to implementation, one team sees it through.",
     heroPrimary: "Get in touch", heroSecondary: "Our business",
 
@@ -159,8 +159,8 @@ const translations = {
     skipLink: "跳到正文", menu: "菜单",
     navAbout: "关于我们", navBusiness: "业务介绍", navServices: "服务内容", navApproach: "合作方式", navExperience: "项目经验", navCompany: "公司概要", navContact: "联系我们",
 
-    heroTitle: "跨越边界，让事业真正运转起来。",
-    heroSub: "跨境事业开发与 AI 解决方案。<br>立足东京。",
+    heroTitle: "跨越边界，让事业动起来。",
+    heroSub: "助力海外企业进入日本，助力日本企业开拓新业务。<br>从战略到签单，再到一线落地。",
     heroLead: "ARCSET 为进入日本市场的海外企业，以及开拓新业务、导入 AI 的日本企业提供支持。从战略制定、销售到落地实施，由同一支团队全程负责。",
     heroPrimary: "联系我们", heroSecondary: "了解业务",
 
