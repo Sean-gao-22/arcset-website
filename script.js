@@ -467,12 +467,12 @@ function arcField(canvas, opts) {
     const z = Math.random() < 0.55 ? 0.45 + Math.random() * 0.2 : 0.85 + Math.random() * 0.15; // far / near
     const len = Math.round(opts.length * (0.6 + Math.random() * 0.8) * (0.7 + z * 0.4));
     const r = {
-      pts: [], len, z, speed: (0.8 + Math.random() * 0.7) * (0.6 + z * 0.6),
+      pts: [], len, z, speed: (0.6 + Math.random() * 0.45) * (0.6 + z * 0.6),
       width: (accent ? 0.9 : 0.4 + Math.random() * 0.4) * (0.6 + z * 0.6),
       color: accent ? opts.accent : opts.stroke,
-      alpha: (accent ? 0.6 : 0.26) * (0.6 + Math.random() * 0.5) * (0.5 + z * 0.6),
-      phase: Math.floor(Math.random() * 5) * 1.3, drift: (Math.random() - 0.5) * 0.12,
-      age: 0, max: 900 + Math.random() * 1400,
+      alpha: (accent ? 0.5 : 0.22) * (0.6 + Math.random() * 0.5) * (0.5 + z * 0.6),
+      phase: Math.floor(Math.random() * 4) * 1.3, drift: (Math.random() - 0.5) * 0.05,
+      age: 0, max: 1400 + Math.random() * 1800,
       x: anywhere ? Math.random() * (w + 400) - 200 : -40 - Math.random() * 200,
       y: Math.random() * h * 1.2 - h * 0.1
     };
@@ -486,17 +486,17 @@ function arcField(canvas, opts) {
   function flow(x, y, r) {
     const nx = x / w, ny = y / h;
     const px = (mouse.x - 0.5), py = (mouse.y - 0.5);
-    let a = Math.sin(ny * 2.0 + t * 0.00018 + r.phase * 0.2) * 0.34
-          + Math.cos(nx * 2.6 - t * 0.00012 + r.phase * 0.1) * 0.26
-          + Math.sin((nx * 0.6 + ny * 1.1) * 2.5 + t * 0.00008) * 0.14
-          + r.drift + px * 0.3 - py * 0.2 - 0.04;
+    let a = Math.sin(ny * 1.6 + t * 0.00012 + r.phase * 0.1) * 0.2
+          + Math.cos(nx * 2.0 - t * 0.00008 + r.phase * 0.06) * 0.14
+          + Math.sin((nx * 0.6 + ny * 1.1) * 1.8 + t * 0.00005) * 0.08
+          + r.drift + px * 0.2 - py * 0.14 - 0.04;
     // wake: ribbons bend gently around the pointer
     const dx = x - mouse.px, dy = y - mouse.py, d2 = dx * dx + dy * dy;
-    if (d2 < 160 * 160) { const k = (1 - Math.sqrt(d2) / 160); a += (dy > 0 ? 1 : -1) * k * k * 0.35; }
+    if (d2 < 160 * 160) { const k = (1 - Math.sqrt(d2) / 160); a += (dy > 0 ? 1 : -1) * k * k * 0.22; }
     // Intro: everything gathers around the mark, then lets go
     if (intro) {
       const sx = x - intro.x, sy = y - intro.y, d = Math.hypot(sx, sy) || 1;
-      const env = intro.env(t), k = env * (0.35 + 0.65 * Math.max(0, 1 - d / intro.radius));
+      const env = intro.env(t), k = env * 0.5 * (0.35 + 0.65 * Math.max(0, 1 - d / intro.radius));
       const toward = Math.atan2(-sy, -sx);
       let diff = toward + 0.8 - a; diff = Math.atan2(Math.sin(diff), Math.cos(diff));
       a += diff * k;
@@ -515,7 +515,13 @@ function arcField(canvas, opts) {
     return a;
   }
   function step(r) {
-    const a = flow(r.x, r.y, r);
+    // limit the turn rate so ribbons bend in long curves and never kink
+    const target = flow(r.x, r.y, r);
+    if (r.a === undefined) r.a = target;
+    let diff = Math.atan2(Math.sin(target - r.a), Math.cos(target - r.a));
+    const maxTurn = 0.035;
+    if (diff > maxTurn) diff = maxTurn; else if (diff < -maxTurn) diff = -maxTurn;
+    r.a += diff; const a = r.a;
     r.x += Math.cos(a) * r.speed; r.y += Math.sin(a) * r.speed; r.age++;
     if (sweepX !== null) { const d = Math.abs(r.x - sweepX); if (d < 220) r.x += 9 * (1 - d / 220); }
     r.pts.push(r.x, r.y);
@@ -625,7 +631,7 @@ function arcField(canvas, opts) {
 const fields = [];
 const bgCanvas = document.getElementById("field");
 if (bgCanvas) {
-  const bg = arcField(bgCanvas, { count: 60, length: 540, accentRatio: 0.16, stroke: "#121212", accent: "#00805c", setColor: "#00805c", markColor: "#121212", parallax: 0.12 });
+  const bg = arcField(bgCanvas, { count: 30, length: 820, accentRatio: 0.12, stroke: "#121212", accent: "#00805c", setColor: "#00805c", markColor: "#121212", parallax: 0.12 });
   fields.push(bg); bg.still();
   if (!reduceMotion) {
     bg.start();
@@ -634,7 +640,7 @@ if (bgCanvas) {
 }
 const darkCanvas = document.querySelector(".field-dark");
 if (darkCanvas) {
-  const dk = arcField(darkCanvas, { count: 40, length: 520, accentRatio: 0.22, stroke: "#ffffff", accent: "#3ddc97", setColor: "#3ddc97", markColor: "#ffffff", parallax: 0 });
+  const dk = arcField(darkCanvas, { count: 20, length: 760, accentRatio: 0.18, stroke: "#ffffff", accent: "#3ddc97", setColor: "#3ddc97", markColor: "#ffffff", parallax: 0 });
   fields.push(dk); dk.still();
   if (!reduceMotion) {
     if ("IntersectionObserver" in window) {
