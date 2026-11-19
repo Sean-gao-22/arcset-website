@@ -305,9 +305,10 @@ html:lang(ja) .leader-statement, html:lang(zh-Hans) .leader-statement { font-wei
 .team-grid { margin-top: 40px; display: grid; grid-template-columns: 1fr; }
 .team-card { display: grid; grid-template-columns: 168px minmax(200px, 260px) 1fr; column-gap: 32px; align-items: start; padding: 32px 0 36px; border-top: 1px solid var(--line); }
 .team-photo { margin: 0; }
-.team-photo img, .team-photo-pending { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-.team-photo-pending { background: var(--gray-2); position: relative; }
-.team-photo-pending svg { position: absolute; left: 50%; top: 50%; width: 42%; transform: translate(-50%, -50%); fill: var(--paper); }
+.team-photo img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.team-monogram { display: flex; align-items: center; justify-content: center; width: 100%; aspect-ratio: 4 / 5; background: var(--paper-2); border: 1px solid var(--line); position: relative; }
+.team-monogram span { font-family: "Outfit", sans-serif; font-size: clamp(34px, 3.2vw, 48px); font-weight: 200; letter-spacing: 0.04em; color: var(--ink); }
+.team-monogram::after { content: ""; position: absolute; left: 14%; right: 14%; bottom: 18%; height: 1px; background: var(--emerald); }
 .team-text { display: contents; }
 .team-head { display: grid; align-content: start; }
 .team-area { display: inline-flex; align-items: center; gap: 10px; font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--emerald); }
