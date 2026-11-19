@@ -62,26 +62,37 @@ const translations = {
     repBio2: "In 2025 he co-founded the Japanese subsidiary of a voice AI company and, as Country Manager, led its launch in the Japanese market. He founded ARCSET in 2026. Having been the advisor, the dealmaker and the operator in turn, he built ARCSET on one principle: the people who plan a business should also sell it and see it through to launch.",
     teamChapter: "Team", navTeam: "Team", membersLabel: "Members",
     teamIntro: "One owner for every stage, from strategy to signed deals to go-live.",
-    m1Name: "Nobuhide Tsuge", m1Alt: "柘植 信英", m1Role: "Head of Business Development",
+    cardMore: "Profile", detailCareer: "Career", detailFigures: "Track record", detailExpertise: "Expertise", detailClose: "Close",
+    m1Name: "Nobuhide Tsuge", m1Alt: "柘植 信英", m1Role: "Head of Business Development", m1Hook: "Builds zero to one through sales.",
     m1Bio1: "In 2017 Nobuhide founded Docodemo, a B2B desktop-as-a-service company, and ran planning, development, sales, hiring and fundraising himself. Combining direct sales, OEM, resellers and webinars, he took the product to around 100 companies, raised about ¥100 million, and sold the business to Aidma Holdings in 2021.",
     m1Bio2: "Since then he has launched sales for new businesses and products in more than ten industries, from SaaS and systems development to logistics, local government, food and retail. He does not direct from a distance: he goes into the field himself and feeds what customers say back into targeting, pitch and proposal.",
     m1Tags: "New business launch · Sales channel design · Field sales · Fundraising and exit",
-    m2Name: "Reon Tajima", m2Alt: "田島 礼音", m2Role: "Head of Sales Development",
-    m2Bio1: "Reon built his career in inside sales and sales enablement. At Webridge he ran inside sales and training, reaching 315% of monthly target at his peak. At i-FLAG, as sales sub-manager, he led sales training and organizational improvement and grew his department from seven people to around thirty in a year and a half, winning the company-wide annual president's award for 2025 and the monthly award four months running.",
-    m2Bio2: "At ARCSET he leads prospecting and inside sales: talk design, weekly KPI cadence and member coaching. His job is to turn a client's first sales motion in Japan into something that can be measured, repeated and handed over.",
-    m2Tags: "Inside sales · Talk design · KPI operation · Sales team coaching",
-    m3Name: "Tsutomu Nakamura", m3Alt: "中村 努", m3Role: "Head of Product",
-    m3Bio1: "Tsutomu has spent about ten years building products, from product manager to CPO, across consumer apps, B2B SaaS and IoT/AI. At CyberAgent he launched the Taiwan business of a dating app and reached CPA below LTV in its first year. At GREE he led the roadmap and several scrum teams for the REALITY live-streaming platform.",
-    m3Bio2: "Most recently, as CPO at Sungrove, he managed a 120-person product organization across Japan and Vietnam, set up a Vietnamese subsidiary of more than 100 people, and raised candidate acquisition on the company's recruiting platform 2.5-fold. At ARCSET he owns product selection, Japanese localization and implementation, including system integration.",
-    m3Tags: "Product selection · Japanese localization · Implementation and integration · Engineering organization",
-    m4Name: "Mamoru Hayami", m4Alt: "速水 衛", m4Role: "Alliance Manager",
-    m4Bio1: "Mamoru has been in sales for nearly thirty years, across manufacturing, retail, real estate, finance and advertising. He sold to department stores and major retailers for Moonbat and Delfonics, ran a community of real-estate owners as its secretary general, and at an SEM agency opened new accounts among financial institutions and listed companies while driving cross-industry alliances.",
-    m4Bio2: "He founded an influencer media business and sold it, and has hosted a cross-industry gathering of marketers more than thirty times. At ARCSET he turns that network into first meetings, both for ARCSET and for its clients.",
-    m4Tags: "Prospecting and introductions · Alliances and referrals · Web marketing · Community",
-    m5Name: "Kohei Yamazaki", m5Alt: "山﨑 耕平", m5Role: "Senior Advisor, Governance, Risk and Tax · CPA (Japan), Certified Tax Accountant",
+    m1c1y: "2017–2021", m1c1t: "Docodemo, Founder and CEO", m1c1d: "B2B DaaS adopted by ~100 companies; business sold", m1c2y: "2021–2022", m1c2t: "Aidma Holdings", m1c2d: "Post-acquisition; built a webinar acquisition channel", m1c3y: "2022–2023", m1c3t: "Locoguide", m1c3d: "Launched inside sales", m1c4y: "2023–", m1c4t: "Puzzle, Founder and CEO", m1c4d: "Sales launches in 10+ industries",
+    m1s1n: "~100", m1s1l: "SaaS clients", m1s2n: "¥100M", m1s2l: "Capital raised", m1s3n: "10+", m1s3l: "Industries launched",
+    m2Name: "Tsutomu Nakamura", m2Alt: "中村 努", m2Role: "Head of Product", m2Hook: "From strategy to implementation, hands on.",
+    m2Bio1: "Tsutomu has spent about ten years building products, from product manager to CPO, across consumer apps, B2B SaaS and IoT/AI. At CyberAgent he launched the Taiwan business of a dating app and reached CPA below LTV in its first year. At GREE he led the roadmap and several scrum teams for the REALITY live-streaming platform.",
+    m2Bio2: "Most recently, as CPO at Sungrove, he managed a 120-person product organization across Japan and Vietnam, set up a Vietnamese subsidiary of more than 100 people, and raised candidate acquisition on the company's recruiting platform 2.5-fold. At ARCSET he owns product selection, Japanese localization and implementation, including system integration.",
+    m2Tags: "Product selection · Japanese localization · Implementation and integration · Engineering organization",
+    m2c1y: "2013–2017", m2c1t: "Osaka University", m2c1d: "B.Eng., School of Engineering Science, Systems Science", m2c2y: "2017–2021", m2c2t: "CyberAgent, Product Manager", m2c2d: "Launched Tapple in Taiwan; CPA below LTV in year one", m2c3y: "2021–2024", m2c3t: "GREE, PdM Manager", m2c3d: "Led the REALITY roadmap and several scrum teams", m2c4y: "2024–2025", m2c4t: "Sungrove, CPO", m2c4d: "120 people across Japan and Vietnam; ATS applications 2.5×",
+    m2s1n: "120", m2s1l: "People managed, JP and VN", m2s2n: "2.5×", m2s2l: "Candidate acquisition", m2s3n: "¥1B", m2s3l: "Monthly revenue of the ATS business",
+    m3Name: "Mamoru Hayami", m3Alt: "速水 衛", m3Role: "Alliance Manager", m3Hook: "Turns networks into first meetings.",
+    m3Bio1: "Mamoru has been in sales for nearly thirty years, across manufacturing, retail, real estate, finance and advertising. He sold to department stores and major retailers for Moonbat and Delfonics, ran a community of real-estate owners as its secretary general, and at an SEM agency opened new accounts among financial institutions and listed companies while driving cross-industry alliances.",
+    m3Bio2: "He founded an influencer media business and sold it, and has hosted a cross-industry gathering of marketers more than thirty times. At ARCSET he turns that network into first meetings, both for ARCSET and for its clients.",
+    m3Tags: "Prospecting and introductions · Alliances and referrals · Web marketing · Community",
+    m3c1y: "1997–", m3c1t: "Moonbat / Delfonics", m3c1d: "B2B sales to department stores and major retailers", m3c2y: "2005–", m3c2t: "Real estate sales / Asuka Club, Secretary General", m3c2d: "Ran a real-estate owners' community and member matching", m3c3y: "2012–", m3c3t: "SEM agency", m3c3d: "New accounts among banks and listed companies; cross-industry alliances", m3c4y: "–2017", m3c4t: "Kawakore, Founder and CEO", m3c4d: "Founded a model and influencer business; sold it", m3c5y: "2017–", m3c5t: "Host, Kawakore Salon", m3c5d: "Cross-industry marketers' gathering, 33 editions",
+    m3s1n: "29 yrs", m3s1l: "In sales", m3s2n: "8,000+", m3s2l: "Business-card network", m3s3n: "30+", m3s3l: "Gatherings hosted",
+    m4Name: "Reon Tajima", m4Alt: "田島 礼音", m4Role: "Head of Sales Development", m4Hook: "Makes the numbers in the field.",
+    m4Bio1: "Reon built his career in inside sales and sales enablement. At Webridge he ran inside sales and training, reaching 315% of monthly target at his peak. At i-FLAG, as sales sub-manager, he led sales training and organizational improvement and grew his department from seven people to around thirty in a year and a half, winning the company-wide annual president's award for 2025 and the monthly award four months running.",
+    m4Bio2: "At ARCSET he leads prospecting and inside sales: talk design, weekly KPI cadence and member coaching. His job is to turn a client's first sales motion in Japan into something that can be measured, repeated and handed over.",
+    m4Tags: "Inside sales · Talk design · KPI operation · Sales team coaching",
+    m4c1y: "", m4c1t: "Webridge", m4c1d: "Inside sales and training; peak 315% of monthly target", m4c2y: "", m4c2t: "i-FLAG, Sales Sub-manager", m4c2d: "Sales training and org improvement; team from 7 to ~30", m4c3y: "2026–", m4c3t: "ARCSET", m4c3d: "Leads prospecting and inside sales",
+    m4s1n: "315%", m4s1l: "Peak monthly target attainment", m4s2n: "7→30", m4s2l: "Team growth in 18 months", m4s3n: "Award", m4s3l: "President's award, FY2025",
+    m5Name: "Kohei Yamazaki", m5Alt: "山﨑 耕平", m5Role: "Senior Advisor, Governance, Risk and Tax", m5Hook: "Secures the defensive side of a Japan entry.",
     m5Bio1: "Kohei is a Japanese CPA and certified tax accountant with experience at three Big Four firms: financial statement and internal control audits, international tax advisory centered on China during years based in Shanghai, and risk advisory covering global governance, internal audit of overseas subsidiaries and fraud investigations. He now leads a governance, risk and compliance team that works alongside lawyers on global compliance and internal audit.",
     m5Bio2: "For ARCSET's clients he looks after the defensive side of a Japan entry: setting up internal controls and rules from day one, spotting Japan–China and Asian tax risks early, meeting the management standards an overseas headquarters expects, and building a structure that passes large enterprises' vendor due diligence. Tax advice and representation are provided by Kohei in his own capacity, not by ARCSET.",
     m5Tags: "Governance design · Japan–China and Asian tax · Internal audit · Vendor due diligence readiness",
+    m5c1y: "", m5c1t: "Big Four audit firm", m5c1d: "Financial statement and internal control audits", m5c2y: "", m5c2t: "Big Four tax firm, Shanghai", m5c2d: "International tax advisory centered on China", m5c3y: "", m5c3t: "Big Four risk advisory", m5c3d: "Global governance, overseas internal audit, fraud investigation", m5c4y: "Now", m5c4t: "GRC team leader", m5c4d: "Global compliance and internal audit alongside lawyers",
+    m5s1n: "CPA", m5s1l: "Japan", m5s2n: "Tax accountant", m5s2l: "Certified, Japan", m5s3n: "Big 4 × 3", m5s3l: "Audit, tax, risk",
     teamNetwork: "For each engagement we add business developers, engineers and industry specialists from our network, and have a dedicated team in place within about two weeks of signing.",
     companyNameLabel: "Company name", companyName: "ARCSET Co., Ltd.",
     companyFoundedLabel: "Established", companyFounded: "August 2026",
@@ -161,26 +172,37 @@ const translations = {
     repBio2: "2025年、音声AI企業の日本法人を共同創業し、カントリーマネージャーとして日本市場での事業立ち上げを牽引。2026年、ARCSET株式会社を設立。戦略を描く側、取引をまとめる側、事業を動かす側の三つを経験したからこそ、「計画した人が売り、導入まで見届ける」というARCSETのやり方にたどり着いた。",
     teamChapter: "チーム", navTeam: "チーム", membersLabel: "メンバー",
     teamIntro: "戦略から受注、導入まで。工程ごとに、責任を持つ人がいます。",
-    m1Name: "柘植 信英", m1Alt: "Nobuhide Tsuge", m1Role: "事業開発責任者",
+    cardMore: "プロフィール", detailCareer: "経歴", detailFigures: "実績", detailExpertise: "専門領域", detailClose: "閉じる",
+    m1Name: "柘植 信英", m1Alt: "Nobuhide Tsuge", m1Role: "事業開発責任者", m1Hook: "0から1を、営業でつくってきた。",
     m1Bio1: "2017年にドコデモ株式会社を創業し、法人向けDaaS「どこでもデスクトップ」の企画・開発・営業・採用・資金調達を自ら担当。自社営業、OEM、代理店、Webセミナーを組み合わせて約100社に導入し、VC・個人投資家から累計約1億円を調達。2021年にアイドマ・ホールディングスへ事業譲渡しました。",
     m1Bio2: "その後はIT・SaaS、システム開発、物流、自治体、食品、店舗DXなど10業界以上で、新規事業・新商材の営業立ち上げを支援。ディレクションにとどまらず、自らフィールドセールスに出て、現場の反応をターゲット・トーク・提案に反映させることを強みとしています。",
     m1Tags: "新規事業の立ち上げ ／ 営業チャネル設計 ／ フィールドセールス ／ 資金調達・事業譲渡",
-    m2Name: "田島 礼音", m2Alt: "Reon Tajima", m2Role: "セールス・ディベロップメント責任者",
-    m2Bio1: "インサイドセールスと営業育成の現場でキャリアを積む。Webridgeではインサイドセールスと教育を担当し、月間予算達成率は最高315%。アイフラッグでは営業サブマネージャーとして営業教育と組織改善を推進し、所属部署を約1年半で7名から約30名規模へ拡大。2025年度の全社年間社長賞と、単月社長賞4ヶ月連続受賞。",
-    m2Bio2: "ARCSETでは新規開拓とインサイドセールスを統括。トーク設計、週次のKPI運用、メンバー育成まで、お客様の日本での最初の営業活動を「測れて、繰り返せて、引き継げる」型にすることが役割です。",
-    m2Tags: "インサイドセールス ／ トーク設計 ／ KPI運用 ／ 営業組織の育成",
-    m3Name: "中村 努", m3Alt: "Tsutomu Nakamura", m3Role: "プロダクト責任者",
-    m3Bio1: "toC、BtoB SaaS、IoT／AIのプロダクトを、PdMからCPOまで約10年推進。サイバーエージェントではマッチングアプリの台湾事業を立ち上げ、初年度にCPA≦LTVを達成。グリーではライブ配信プラットフォーム「REALITY」のロードマップと複数のスクラムチームを牽引しました。",
-    m3Bio2: "直近はサングローブのCPOとして日本・ベトナム120名のプロダクト組織を管掌し、100名規模のベトナム子会社を立ち上げ、採用プラットフォームの応募獲得数を2.5倍に。ARCSETでは取扱製品の選定から日本向けローカライズ、システム連携を含む導入までを統括します。",
-    m3Tags: "取扱製品の目利き ／ 日本向けローカライズ ／ 導入・システム連携 ／ 開発体制づくり",
-    m4Name: "速水 衛", m4Alt: "Mamoru Hayami", m4Role: "アライアンスマネージャー",
-    m4Bio1: "メーカー、小売、不動産、金融、広告をまたいで約30年、営業の現場に立ち続けてきました。ムーンバット／デルフォニックスでは百貨店や大手流通向けの法人営業を担当。不動産経営者コミュニティの事務局長として会員のマッチングを運営し、SEMエージェンシーでは金融機関・上場企業の新規開拓と異業種アライアンスを推進しています。",
-    m4Bio2: "自ら創業したインフルエンサー・メディア事業の譲渡も経験し、業界横断のマーケター交流会は30回以上主催。ARCSETでは、この人脈とコミュニティを起点に、ARCSETとお客様の双方に商談の「入口」をつくります。",
-    m4Tags: "新規開拓・アポ創出 ／ アライアンス・相互送客 ／ Webマーケティング ／ コミュニティ運営",
-    m5Name: "山﨑 耕平", m5Alt: "Kohei Yamazaki", m5Role: "顧問（ガバナンス・リスク・税務）　公認会計士・税理士",
+    m1c1y: "2017–2021", m1c1t: "ドコデモ　創業者・代表取締役", m1c1d: "法人向けDaaSを約100社に導入し、事業譲渡", m1c2y: "2021–2022", m1c2t: "アイドマ・ホールディングス", m1c2d: "事業引継ぎ。Webセミナーで新チャネルを組成", m1c3y: "2022–2023", m1c3t: "ロコガイド", m1c3d: "インサイドセールスを立ち上げ", m1c4y: "2023–", m1c4t: "パズル　創業者・代表", m1c4d: "10以上の業界で新規事業の営業立ち上げ",
+    m1s1n: "100社", m1s1l: "SaaS導入", m1s2n: "1億円", m1s2l: "資金調達", m1s3n: "10業界+", m1s3l: "営業立ち上げ",
+    m2Name: "中村 努", m2Alt: "Tsutomu Nakamura", m2Role: "プロダクト責任者", m2Hook: "戦略から実装まで、自分の手で通す。",
+    m2Bio1: "toC、BtoB SaaS、IoT／AIのプロダクトを、PdMからCPOまで約10年推進。サイバーエージェントではマッチングアプリの台湾事業を立ち上げ、初年度にCPA≦LTVを達成。グリーではライブ配信プラットフォーム「REALITY」のロードマップと複数のスクラムチームを牽引しました。",
+    m2Bio2: "直近はサングローブのCPOとして日本・ベトナム120名のプロダクト組織を管掌し、100名規模のベトナム子会社を立ち上げ、採用プラットフォームの応募獲得数を2.5倍に。ARCSETでは取扱製品の選定から日本向けローカライズ、システム連携を含む導入までを統括します。",
+    m2Tags: "取扱製品の目利き ／ 日本向けローカライズ ／ 導入・システム連携 ／ 開発体制づくり",
+    m2c1y: "2013–2017", m2c1t: "大阪大学　基礎工学部", m2c1d: "システム科学科 卒業", m2c2y: "2017–2021", m2c2t: "サイバーエージェント　PdM", m2c2d: "タップル台湾事業を立ち上げ、初年度にCPA≦LTV", m2c3y: "2021–2024", m2c3t: "グリー　PdMマネージャー", m2c3d: "REALITYのロードマップと複数スクラムを牽引", m2c4y: "2024–2025", m2c4t: "サングローブ　CPO", m2c4d: "日越120名を管掌。ATSの応募獲得数を2.5倍に",
+    m2s1n: "120名", m2s1l: "日越の組織を管掌", m2s2n: "2.5倍", m2s2l: "応募獲得数", m2s3n: "10億円", m2s3l: "担当事業の単月売上",
+    m3Name: "速水 衛", m3Alt: "Mamoru Hayami", m3Role: "アライアンスマネージャー", m3Hook: "人脈を、商談の入口に変える。",
+    m3Bio1: "メーカー、小売、不動産、金融、広告をまたいで約30年、営業の現場に立ち続けてきました。ムーンバット／デルフォニックスでは百貨店や大手流通向けの法人営業を担当。不動産経営者コミュニティの事務局長として会員のマッチングを運営し、SEMエージェンシーでは金融機関・上場企業の新規開拓と異業種アライアンスを推進しています。",
+    m3Bio2: "自ら創業したインフルエンサー・メディア事業の譲渡も経験し、業界横断のマーケター交流会は30回以上主催。ARCSETでは、この人脈とコミュニティを起点に、ARCSETとお客様の双方に商談の「入口」をつくります。",
+    m3Tags: "新規開拓・アポ創出 ／ アライアンス・相互送客 ／ Webマーケティング ／ コミュニティ運営",
+    m3c1y: "1997–", m3c1t: "ムーンバット／デルフォニックス", m3c1d: "百貨店・ロフト・ハンズなど流通大手向けの法人営業", m3c2y: "2005–", m3c2t: "不動産営業／あすか倶楽部 事務局長", m3c2d: "不動産経営者コミュニティの運営と会員マッチング", m3c3y: "2012–", m3c3t: "SEMエージェンシー", m3c3d: "金融機関・上場企業の新規開拓、異業種アライアンス推進", m3c4y: "–2017", m3c4t: "カワコレ　創業者・代表取締役", m3c4d: "モデル・インフルエンサー事業を創業し、事業譲渡", m3c5y: "2017–", m3c5t: "「カワコレサロン」主催", m3c5d: "業界横断のマーケター交流会を33回開催",
+    m3s1n: "29年", m3s1l: "営業キャリア", m3s2n: "8,000名+", m3s2l: "名刺ネットワーク", m3s3n: "30回+", m3s3l: "交流会を主催",
+    m4Name: "田島 礼音", m4Alt: "Reon Tajima", m4Role: "セールス・ディベロップメント責任者", m4Hook: "現場で、数字をつくる。",
+    m4Bio1: "インサイドセールスと営業育成の現場でキャリアを積む。Webridgeではインサイドセールスと教育を担当し、月間予算達成率は最高315%。アイフラッグでは営業サブマネージャーとして営業教育と組織改善を推進し、所属部署を約1年半で7名から約30名規模へ拡大。2025年度の全社年間社長賞と、単月社長賞4ヶ月連続受賞。",
+    m4Bio2: "ARCSETでは新規開拓とインサイドセールスを統括。トーク設計、週次のKPI運用、メンバー育成まで、お客様の日本での最初の営業活動を「測れて、繰り返せて、引き継げる」型にすることが役割です。",
+    m4Tags: "インサイドセールス ／ トーク設計 ／ KPI運用 ／ 営業組織の育成",
+    m4c1y: "", m4c1t: "Webridge", m4c1d: "インサイドセールスと教育を担当。月間予算達成率 最高315%", m4c2y: "", m4c2t: "アイフラッグ　営業サブマネージャー", m4c2d: "営業教育と組織改善を推進。部署を7名から約30名規模へ", m4c3y: "2026–", m4c3t: "ARCSET", m4c3d: "新規開拓とインサイドセールスを統括",
+    m4s1n: "315%", m4s1l: "月間予算達成率（最高）", m4s2n: "7→30名", m4s2l: "部署を約1年半で拡大", m4s3n: "社長賞", m4s3l: "2025年度 年間・単月4ヶ月連続",
+    m5Name: "山﨑 耕平", m5Alt: "Kohei Yamazaki", m5Role: "顧問（ガバナンス・リスク・税務）", m5Hook: "日本参入の「守り」を固める。",
     m5Bio1: "公認会計士・税理士。Big4の3社で、財務諸表監査・内部統制監査、上海駐在を含む中国を中心とした国際税務アドバイザリー、グローバルガバナンス強化・海外拠点の内部監査・不正調査といったリスクアドバイザリーを経験。現在はGRC（ガバナンス・リスク・コンプライアンス）チームのリーダーとして、弁護士と連携したグローバルコンプライアンス・内部監査を支援しています。",
     m5Bio2: "ARCSETのお客様に対しては、日本参入の「守り」を担当します。立ち上げ期からの内部統制・規程の整備、日中・アジアのクロスボーダー税務リスクの早期把握、海外本社が求める管理水準の実現、そして大手企業の取引審査で止まらない管理体制づくり。なお、税務の相談・代理は税理士である山﨑本人が行い、ARCSETが税務サービスを提供するものではありません。",
     m5Tags: "ガバナンス設計 ／ 日中・アジア税務 ／ 内部監査・不正対応 ／ 取引審査への備え",
+    m5c1y: "", m5c1t: "大手監査法人（Big4）", m5c1d: "財務諸表監査、内部統制監査", m5c2y: "", m5c2t: "Big4系税理士法人（上海駐在）", m5c2d: "中国を中心とした国際税務アドバイザリー", m5c3y: "", m5c3t: "Big4系ファーム　リスクアドバイザリー", m5c3d: "グローバルガバナンス強化、海外拠点の内部監査、不正調査", m5c4y: "現在", m5c4t: "GRCチーム リーダー", m5c4d: "弁護士と連携したグローバルコンプライアンス・内部監査",
+    m5s1n: "公認会計士", m5s1l: "日本", m5s2n: "税理士", m5s2l: "日本", m5s3n: "Big4 × 3", m5s3l: "監査・税務・リスク",
     teamNetwork: "案件ごとに、ネットワークから事業開発、エンジニア、業界スペシャリストが加わります。契約から約2週間で専任チームを編成します。",
     companyNameLabel: "社名", companyName: "ARCSET株式会社",
     companyFoundedLabel: "設立", companyFounded: "2026年8月",
@@ -260,26 +282,37 @@ const translations = {
     repBio2: "2025 年联合创办一家语音 AI 企业的日本法人，出任国家经理，带领其在日本市场实现从零到一。2026 年创立 ARCSET株式会社。顾问、交易、经营三种角色都亲身经历过，因此他为 ARCSET 确立了一条原则：定战略的人，要亲自去卖，并一路负责到落地。",
     teamChapter: "团队", navTeam: "团队", membersLabel: "成员",
     teamIntro: "从战略到签单、再到落地，每个环节都有一位负责人。",
-    m1Name: "柘植 信英", m1Alt: "Nobuhide Tsuge", m1Role: "事业开发负责人",
+    cardMore: "个人简介", detailCareer: "经历", detailFigures: "实绩", detailExpertise: "专长", detailClose: "关闭",
+    m1Name: "柘植 信英", m1Alt: "Nobuhide Tsuge", m1Role: "事业开发负责人", m1Hook: "用销售，把 0 做到 1。",
     m1Bio1: "2017 年创办 Docodemo 株式会社，亲自负责企业级 DaaS 产品「どこでもデスクトップ」的规划、开发、销售、招聘与融资。结合直销、OEM、代理商与线上研讨会，导入约 100 家企业，累计从 VC 与个人投资者融资约 1 亿日元，并于 2021 年将业务转让给 Aidma Holdings。",
     m1Bio2: "此后在 IT/SaaS、系统开发、物流、地方政府、食品、门店数字化等十余个行业，支援新业务与新产品的销售起步。他不只做指挥，而是亲自跑一线，把客户的反应回灌到目标客户、话术与提案之中。",
     m1Tags: "新业务起步 · 销售渠道设计 · 一线销售 · 融资与事业转让",
-    m2Name: "田岛 礼音", m2Alt: "Reon Tajima", m2Role: "销售开发负责人",
-    m2Bio1: "在内部销售与销售培训一线积累职业经验。在 Webridge 负责内部销售与培训，月度预算达成率最高 315%。在 i-FLAG 担任销售副经理，推动销售培训与组织改善，约一年半内将所在部门从 7 人扩大到约 30 人，获 2025 年度全公司年度社长奖，并连续四个月获月度社长奖。",
-    m2Bio2: "在 ARCSET 统管新客开拓与内部销售。从话术设计、每周 KPI 运营到成员培养，他的职责是把客户在日本的第一轮销售动作，变成「可衡量、可复制、可交接」的打法。",
-    m2Tags: "内部销售 · 话术设计 · KPI 运营 · 销售团队培养",
-    m3Name: "中村 努", m3Alt: "Tsutomu Nakamura", m3Role: "产品负责人",
-    m3Bio1: "十年间从产品经理做到 CPO，横跨 toC、B2B SaaS 与 IoT/AI 产品。在 CyberAgent 开拓交友应用的台湾业务，第一年即实现 CPA≦LTV；在 GREE 牵引直播平台「REALITY」的路线图与多个 Scrum 团队。",
-    m3Bio2: "近期担任 Sungrove 的 CPO，管理日本与越南共 120 人的产品组织，建立 100 人规模的越南子公司，并将招聘平台的应募获取量提升 2.5 倍。在 ARCSET 统管产品选型、日本本地化，以及包含系统对接在内的导入落地。",
-    m3Tags: "产品选型 · 日本本地化 · 导入与系统对接 · 研发组织搭建",
-    m4Name: "速水 卫", m4Alt: "Mamoru Hayami", m4Role: "合作伙伴经理",
-    m4Bio1: "横跨制造、零售、房地产、金融与广告，近三十年始终站在销售一线。在 Moonbat／Delfonics 负责面向百货与大型零售的企业销售；担任房地产经营者社群的事务局长，运营会员撮合；在 SEM 代理公司开拓金融机构与上市公司客户，并推动跨行业联盟。",
-    m4Bio2: "曾创办网红媒体业务并完成转让，主办跨行业营销人交流会三十余次。在 ARCSET，他以这份人脉与社群为起点，为 ARCSET 与客户双方打开商谈的入口。",
-    m4Tags: "新客开拓与引荐 · 联盟与相互导流 · 网络营销 · 社群运营",
-    m5Name: "山崎 耕平", m5Alt: "Kohei Yamazaki", m5Role: "顾问（治理、风险、税务）　日本注册会计师、税理士",
+    m1c1y: "2017–2021", m1c1t: "Docodemo　创始人、代表董事", m1c1d: "企业级 DaaS 导入约 100 家，完成事业转让", m1c2y: "2021–2022", m1c2t: "Aidma Holdings", m1c2d: "业务交接，以线上研讨会组建新获客渠道", m1c3y: "2022–2023", m1c3t: "Locoguide", m1c3d: "从零建立内部销售", m1c4y: "2023–", m1c4t: "Puzzle　创始人、代表", m1c4d: "在 10 余个行业支援新业务的销售起步",
+    m1s1n: "100 家", m1s1l: "SaaS 导入", m1s2n: "1 亿日元", m1s2l: "融资", m1s3n: "10+ 行业", m1s3l: "销售起步",
+    m2Name: "中村 努", m2Alt: "Tsutomu Nakamura", m2Role: "产品负责人", m2Hook: "从战略到实现，亲手打通。",
+    m2Bio1: "十年间从产品经理做到 CPO，横跨 toC、B2B SaaS 与 IoT/AI 产品。在 CyberAgent 开拓交友应用的台湾业务，第一年即实现 CPA≦LTV；在 GREE 牵引直播平台「REALITY」的路线图与多个 Scrum 团队。",
+    m2Bio2: "近期担任 Sungrove 的 CPO，管理日本与越南共 120 人的产品组织，建立 100 人规模的越南子公司，并将招聘平台的应募获取量提升 2.5 倍。在 ARCSET 统管产品选型、日本本地化，以及包含系统对接在内的导入落地。",
+    m2Tags: "产品选型 · 日本本地化 · 导入与系统对接 · 研发组织搭建",
+    m2c1y: "2013–2017", m2c1t: "大阪大学　基础工学部", m2c1d: "系统科学科 毕业", m2c2y: "2017–2021", m2c2t: "CyberAgent　产品经理", m2c2d: "开拓 Tapple 台湾业务，第一年实现 CPA≦LTV", m2c3y: "2021–2024", m2c3t: "GREE　产品经理主管", m2c3d: "牵引 REALITY 路线图与多个 Scrum 团队", m2c4y: "2024–2025", m2c4t: "Sungrove　CPO", m2c4d: "管理日越 120 人，ATS 应募获取量提升 2.5 倍",
+    m2s1n: "120 人", m2s1l: "管理日越组织", m2s2n: "2.5 倍", m2s2l: "应募获取量", m2s3n: "10 亿日元", m2s3l: "所辖事业单月销售额",
+    m3Name: "速水 卫", m3Alt: "Mamoru Hayami", m3Role: "合作伙伴经理", m3Hook: "把人脉，变成商谈的入口。",
+    m3Bio1: "横跨制造、零售、房地产、金融与广告，近三十年始终站在销售一线。在 Moonbat／Delfonics 负责面向百货与大型零售的企业销售；担任房地产经营者社群的事务局长，运营会员撮合；在 SEM 代理公司开拓金融机构与上市公司客户，并推动跨行业联盟。",
+    m3Bio2: "曾创办网红媒体业务并完成转让，主办跨行业营销人交流会三十余次。在 ARCSET，他以这份人脉与社群为起点，为 ARCSET 与客户双方打开商谈的入口。",
+    m3Tags: "新客开拓与引荐 · 联盟与相互导流 · 网络营销 · 社群运营",
+    m3c1y: "1997–", m3c1t: "Moonbat／Delfonics", m3c1d: "面向百货、Loft、Hands 等大型流通的企业销售", m3c2y: "2005–", m3c2t: "房地产销售／Asuka 俱乐部 事务局长", m3c2d: "运营房地产经营者社群与会员撮合", m3c3y: "2012–", m3c3t: "SEM 代理公司", m3c3d: "开拓金融机构与上市公司，推动跨行业联盟", m3c4y: "–2017", m3c4t: "Kawakore　创始人、代表董事", m3c4d: "创办模特与网红业务，并完成转让", m3c5y: "2017–", m3c5t: "「Kawakore Salon」主办人", m3c5d: "跨行业营销人交流会，已举办 33 期",
+    m3s1n: "29 年", m3s1l: "销售生涯", m3s2n: "8,000+", m3s2l: "名片网络", m3s3n: "30+ 期", m3s3l: "交流会主办",
+    m4Name: "田岛 礼音", m4Alt: "Reon Tajima", m4Role: "销售开发负责人", m4Hook: "在一线，做出数字。",
+    m4Bio1: "在内部销售与销售培训一线积累职业经验。在 Webridge 负责内部销售与培训，月度预算达成率最高 315%。在 i-FLAG 担任销售副经理，推动销售培训与组织改善，约一年半内将所在部门从 7 人扩大到约 30 人，获 2025 年度全公司年度社长奖，并连续四个月获月度社长奖。",
+    m4Bio2: "在 ARCSET 统管新客开拓与内部销售。从话术设计、每周 KPI 运营到成员培养，他的职责是把客户在日本的第一轮销售动作，变成「可衡量、可复制、可交接」的打法。",
+    m4Tags: "内部销售 · 话术设计 · KPI 运营 · 销售团队培养",
+    m4c1y: "", m4c1t: "Webridge", m4c1d: "负责内部销售与培训，月度预算达成率最高 315%", m4c2y: "", m4c2t: "i-FLAG　销售副经理", m4c2d: "推动销售培训与组织改善，部门从 7 人扩大到约 30 人", m4c3y: "2026–", m4c3t: "ARCSET", m4c3d: "统管新客开拓与内部销售",
+    m4s1n: "315%", m4s1l: "月度预算达成率（最高）", m4s2n: "7→30 人", m4s2l: "约一年半内扩大部门", m4s3n: "社长奖", m4s3l: "2025 年度年度奖、连续 4 个月月度奖",
+    m5Name: "山崎 耕平", m5Alt: "Kohei Yamazaki", m5Role: "顾问（治理、风险、税务）", m5Hook: "筑牢进入日本的防线。",
     m5Bio1: "日本注册会计师、税理士。曾在三家四大会计师事务所任职：从事财务报表审计与内部控制审计；常驻上海，提供以中国为中心的国际税务咨询；在风险咨询部门负责全球治理强化、海外据点内部审计与舞弊调查。现任 GRC（治理、风险、合规）团队负责人，与律师协作支援全球合规与内部审计。",
     m5Bio2: "为 ARCSET 的客户守住进入日本的「防线」：从设立初期完善内控与制度，尽早识别中日及亚洲跨境税务风险，达到海外总部要求的管理水平，并建立能通过大企业交易审查的管理体制。税务咨询与代理由具备税理士资格的山崎本人提供，并非 ARCSET 的服务。",
     m5Tags: "治理设计 · 中日与亚洲税务 · 内部审计与舞弊应对 · 交易审查准备",
+    m5c1y: "", m5c1t: "四大会计师事务所", m5c1d: "财务报表审计、内部控制审计", m5c2y: "", m5c2t: "四大系税务事务所（常驻上海）", m5c2d: "以中国为中心的国际税务咨询", m5c3y: "", m5c3t: "四大系风险咨询", m5c3d: "全球治理强化、海外据点内部审计、舞弊调查", m5c4y: "现任", m5c4t: "GRC 团队负责人", m5c4d: "与律师协作的全球合规与内部审计",
+    m5s1n: "注册会计师", m5s1l: "日本", m5s2n: "税理士", m5s2l: "日本", m5s3n: "四大 × 3", m5s3l: "审计、税务、风险",
     teamNetwork: "每个项目都会从我们的网络中加入业务开发、工程师与行业专家，签约后约两周即可组建专属团队。",
     companyNameLabel: "公司名称", companyName: "ARCSET株式会社",
     companyFoundedLabel: "成立", companyFounded: "2026 年 8 月",
@@ -768,3 +801,45 @@ window.addEventListener("load", () => {
   bg.playIntro();
   setTimeout(() => { document.body.classList.remove("is-intro"); document.body.classList.add("is-ready"); }, 1900);
 });
+
+
+/* ---------- Team: expandable profiles ---------- */
+(() => {
+  const grid = document.getElementById("team-grid");
+  if (!grid) return;
+  const items = () => Array.from(grid.querySelectorAll("li.team-item"));
+  let openId = null;
+  function close() {
+    if (!openId) return;
+    const li = grid.querySelector(`li.team-item[data-member="${openId}"]`);
+    const panel = grid.querySelector(`li.team-detail[data-member="${openId}"]`);
+    if (li) { li.classList.remove("is-open"); li.querySelector(".team-card").setAttribute("aria-expanded", "false"); }
+    if (panel) { panel.hidden = true; panel.classList.remove("is-in"); }
+    openId = null;
+  }
+  function open(id, scroll) {
+    close();
+    const li = grid.querySelector(`li.team-item[data-member="${id}"]`);
+    const panel = grid.querySelector(`li.team-detail[data-member="${id}"]`);
+    if (!li || !panel) return;
+    const top = li.offsetTop; let last = li;
+    items().forEach((x) => { if (Math.abs(x.offsetTop - top) < 2) last = x; });
+    last.after(panel);
+    panel.hidden = false; panel.classList.add("is-in");
+    li.classList.add("is-open"); li.querySelector(".team-card").setAttribute("aria-expanded", "true");
+    openId = id;
+    if (scroll) {
+      const header = document.querySelector(".site-header");
+      const offset = (header ? header.offsetHeight : 0) + 16;
+      const y = li.getBoundingClientRect().top + window.scrollY - offset;
+      if (li.getBoundingClientRect().top < offset) window.scrollTo({ top: y, behavior: reduceMotion ? "auto" : "smooth" });
+    }
+  }
+  grid.addEventListener("click", (e) => {
+    const card = e.target.closest(".team-card");
+    if (card) { const id = card.closest("li").dataset.member; openId === id ? close() : open(id, true); return; }
+    if (e.target.closest(".team-detail-close")) close();
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+  let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(() => { if (openId) open(openId, false); }, 120); });
+})();

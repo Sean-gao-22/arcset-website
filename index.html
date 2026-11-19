@@ -24,7 +24,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=20261119f">
+  <link rel="stylesheet" href="styles.css?v=20261119h">
   <title>ARCSET | Cross-border business development and AI solutions, Tokyo</title>
 </head>
 <body>
@@ -273,91 +273,206 @@
           </div>
         </div>
       </div>
-      <div class="chapter-body chapter-body-tight team">
+      <div class="chapter-body chapter-body-tight">
         <p class="chapter-label reveal" data-i18n="membersLabel">Members</p>
         <div class="chapter-content">
           <p class="statement reveal" data-i18n="teamIntro">One owner for every stage, from strategy to signed deals to go-live.</p>
-          <ol class="team-grid">
-            <li class="reveal team-card">
-              <figure class="team-photo"><img src="assets/team-tsuge.jpg" alt="" width="480" height="600" loading="lazy"></figure>
-              <div class="team-text">
-                <div class="team-head">
-                <span class="team-area">Business development</span>
-                <h3 class="team-name"><span data-i18n="m1Name">Nobuhide Tsuge</span><small data-i18n="m1Alt">柘植 信英</small></h3>
-                <p class="team-role" data-i18n="m1Role">Head of Business Development</p>
-                <p class="team-tags" data-i18n="m1Tags"></p>
-                </div>
-                <div class="team-body">
-                <p class="team-bio" data-i18n="m1Bio1"></p>
-                <p class="team-bio" data-i18n="m1Bio2"></p>
-                </div>
-              </div>
-            </li>
-            <li class="reveal team-card">
-              <figure class="team-photo"><img src="assets/team-nakamura.jpg" alt="" width="480" height="600" loading="lazy"></figure>
-              <div class="team-text">
-                <div class="team-head">
-                <span class="team-area">Product</span>
-                <h3 class="team-name"><span data-i18n="m3Name">Tsutomu Nakamura</span><small data-i18n="m3Alt">中村 努</small></h3>
-                <p class="team-role" data-i18n="m3Role">Head of Product</p>
-                <p class="team-tags" data-i18n="m3Tags"></p>
-                </div>
-                <div class="team-body">
-                <p class="team-bio" data-i18n="m3Bio1"></p>
-                <p class="team-bio" data-i18n="m3Bio2"></p>
-                </div>
-              </div>
-            </li>
-            <li class="reveal team-card">
-              <figure class="team-photo"><img src="assets/team-hayami.jpg" alt="" width="480" height="600" loading="lazy"></figure>
-              <div class="team-text">
-                <div class="team-head">
-                <span class="team-area">Alliance</span>
-                <h3 class="team-name"><span data-i18n="m4Name">Mamoru Hayami</span><small data-i18n="m4Alt">速水 衛</small></h3>
-                <p class="team-role" data-i18n="m4Role">Alliance Manager</p>
-                <p class="team-tags" data-i18n="m4Tags"></p>
-                </div>
-                <div class="team-body">
-                <p class="team-bio" data-i18n="m4Bio1"></p>
-                <p class="team-bio" data-i18n="m4Bio2"></p>
-                </div>
-              </div>
-            </li>
-            <li class="reveal team-card">
-              <figure class="team-photo"><img src="assets/team-tajima.jpg" alt="" width="480" height="600" loading="lazy"></figure>
-              <div class="team-text">
-                <div class="team-head">
-                <span class="team-area">Sales development</span>
-                <h3 class="team-name"><span data-i18n="m2Name">Reon Tajima</span><small data-i18n="m2Alt">田島 礼音</small></h3>
-                <p class="team-role" data-i18n="m2Role">Head of Sales Development</p>
-                <p class="team-tags" data-i18n="m2Tags"></p>
-                </div>
-                <div class="team-body">
-                <p class="team-bio" data-i18n="m2Bio1"></p>
-                <p class="team-bio" data-i18n="m2Bio2"></p>
-                </div>
-              </div>
-            </li>
-          </ol>
-          <div class="team-advisor">
-            <div class="reveal team-card">
-              <figure class="team-photo"><img src="assets/team-yamazaki.jpg" alt="" width="480" height="600" loading="lazy"></figure>
-              <div class="team-text">
-                <div class="team-head">
-                <span class="team-area">Advisor</span>
-                <h3 class="team-name"><span data-i18n="m5Name">Kohei Yamazaki</span><small data-i18n="m5Alt">山﨑 耕平</small></h3>
-                <p class="team-role" data-i18n="m5Role">Senior Advisor, Governance, Risk and Tax</p>
-                <p class="team-tags" data-i18n="m5Tags"></p>
-                </div>
-                <div class="team-body">
-                <p class="team-bio" data-i18n="m5Bio1"></p>
-                <p class="team-bio" data-i18n="m5Bio2"></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <p class="team-network reveal" data-i18n="teamNetwork"></p>
         </div>
+      </div>
+      <div class="team">
+        <ul class="team-grid" id="team-grid">
+            <li class="team-item reveal" data-member="tsuge">
+              <button class="team-card" type="button" aria-expanded="false" aria-controls="team-detail-tsuge">
+                <figure class="team-photo"><img src="assets/team-tsuge.jpg" alt="" width="480" height="600" loading="lazy"></figure>
+                <span class="team-area">Business development</span>
+                <span class="team-name"><span data-i18n="m1Name">Nobuhide Tsuge</span><small data-i18n="m1Alt">柘植 信英</small></span>
+                <span class="team-role" data-i18n="m1Role">Head of Business Development</span>
+                <span class="team-hook" data-i18n="m1Hook">Builds zero to one through sales.</span>
+                <span class="team-more"><span data-i18n="cardMore">Profile</span><i aria-hidden="true"></i></span>
+              </button>
+            </li>
+            <li class="team-item reveal" data-member="nakamura">
+              <button class="team-card" type="button" aria-expanded="false" aria-controls="team-detail-nakamura">
+                <figure class="team-photo"><img src="assets/team-nakamura.jpg" alt="" width="480" height="600" loading="lazy"></figure>
+                <span class="team-area">Product</span>
+                <span class="team-name"><span data-i18n="m2Name">Tsutomu Nakamura</span><small data-i18n="m2Alt">中村 努</small></span>
+                <span class="team-role" data-i18n="m2Role">Head of Product</span>
+                <span class="team-hook" data-i18n="m2Hook">From strategy to implementation, hands on.</span>
+                <span class="team-more"><span data-i18n="cardMore">Profile</span><i aria-hidden="true"></i></span>
+              </button>
+            </li>
+            <li class="team-item reveal" data-member="hayami">
+              <button class="team-card" type="button" aria-expanded="false" aria-controls="team-detail-hayami">
+                <figure class="team-photo"><img src="assets/team-hayami.jpg" alt="" width="480" height="600" loading="lazy"></figure>
+                <span class="team-area">Alliance</span>
+                <span class="team-name"><span data-i18n="m3Name">Mamoru Hayami</span><small data-i18n="m3Alt">速水 衛</small></span>
+                <span class="team-role" data-i18n="m3Role">Alliance Manager</span>
+                <span class="team-hook" data-i18n="m3Hook">Turns networks into first meetings.</span>
+                <span class="team-more"><span data-i18n="cardMore">Profile</span><i aria-hidden="true"></i></span>
+              </button>
+            </li>
+            <li class="team-item reveal" data-member="tajima">
+              <button class="team-card" type="button" aria-expanded="false" aria-controls="team-detail-tajima">
+                <figure class="team-photo"><img src="assets/team-tajima.jpg" alt="" width="480" height="600" loading="lazy"></figure>
+                <span class="team-area">Sales development</span>
+                <span class="team-name"><span data-i18n="m4Name">Reon Tajima</span><small data-i18n="m4Alt">田島 礼音</small></span>
+                <span class="team-role" data-i18n="m4Role">Head of Sales Development</span>
+                <span class="team-hook" data-i18n="m4Hook">Makes the numbers in the field.</span>
+                <span class="team-more"><span data-i18n="cardMore">Profile</span><i aria-hidden="true"></i></span>
+              </button>
+            </li>
+            <li class="team-item reveal" data-member="yamazaki">
+              <button class="team-card" type="button" aria-expanded="false" aria-controls="team-detail-yamazaki">
+                <figure class="team-photo"><img src="assets/team-yamazaki.jpg" alt="" width="480" height="600" loading="lazy"></figure>
+                <span class="team-area">Advisor</span>
+                <span class="team-name"><span data-i18n="m5Name">Kohei Yamazaki</span><small data-i18n="m5Alt">山﨑 耕平</small></span>
+                <span class="team-role" data-i18n="m5Role">Senior Advisor, Governance, Risk and Tax</span>
+                <span class="team-hook" data-i18n="m5Hook">Secures the defensive side of a Japan entry.</span>
+                <span class="team-more"><span data-i18n="cardMore">Profile</span><i aria-hidden="true"></i></span>
+              </button>
+            </li>
+            <li class="team-detail" id="team-detail-tsuge" data-member="tsuge" hidden>
+              <div class="team-detail-inner">
+                <div class="team-detail-col team-detail-career">
+                  <p class="team-detail-label" data-i18n="detailCareer">Career</p>
+                  <div class="team-career">
+                    <div><span class="team-year" data-i18n="m1c1y">2017–2021</span><span class="team-org" data-i18n="m1c1t">Docodemo, Founder and CEO</span><span class="team-what" data-i18n="m1c1d">B2B DaaS adopted by ~100 companies; business sold</span></div>
+                    <div><span class="team-year" data-i18n="m1c2y">2021–2022</span><span class="team-org" data-i18n="m1c2t">Aidma Holdings</span><span class="team-what" data-i18n="m1c2d">Post-acquisition; built a webinar acquisition channel</span></div>
+                    <div><span class="team-year" data-i18n="m1c3y">2022–2023</span><span class="team-org" data-i18n="m1c3t">Locoguide</span><span class="team-what" data-i18n="m1c3d">Launched inside sales</span></div>
+                    <div><span class="team-year" data-i18n="m1c4y">2023–</span><span class="team-org" data-i18n="m1c4t">Puzzle, Founder and CEO</span><span class="team-what" data-i18n="m1c4d">Sales launches in 10+ industries</span></div>
+                  </div>
+                </div>
+                <div class="team-detail-col team-detail-bio">
+                  <p class="team-bio" data-i18n="m1Bio1">In 2017 Nobuhide founded Docodemo, a B2B desktop-as-a-service company, and ran planning, development, sales, hiring and fundraising himself. Combining direct sales, OEM, resellers and webinars, he took the product to around 100 companies, raised about ¥100 million, and sold the business to Aidma Holdings in 2021.</p>
+                  <p class="team-bio" data-i18n="m1Bio2">Since then he has launched sales for new businesses and products in more than ten industries, from SaaS and systems development to logistics, local government, food and retail. He does not direct from a distance: he goes into the field himself and feeds what customers say back into targeting, pitch and proposal.</p>
+                </div>
+                <div class="team-detail-col team-detail-side">
+                  <p class="team-detail-label" data-i18n="detailFigures">Track record</p>
+                  <div class="team-stats">
+                    <div><strong data-i18n="m1s1n">~100</strong><span data-i18n="m1s1l">SaaS clients</span></div>
+                    <div><strong data-i18n="m1s2n">¥100M</strong><span data-i18n="m1s2l">Capital raised</span></div>
+                    <div><strong data-i18n="m1s3n">10+</strong><span data-i18n="m1s3l">Industries launched</span></div>
+                  </div>
+                  <p class="team-detail-label" data-i18n="detailExpertise">Expertise</p>
+                  <p class="team-tags" data-i18n="m1Tags">New business launch · Sales channel design · Field sales · Fundraising and exit</p>
+                </div>
+                <button class="team-detail-close" type="button"><span data-i18n="detailClose">Close</span><i aria-hidden="true"></i></button>
+              </div>
+            </li>
+            <li class="team-detail" id="team-detail-nakamura" data-member="nakamura" hidden>
+              <div class="team-detail-inner">
+                <div class="team-detail-col team-detail-career">
+                  <p class="team-detail-label" data-i18n="detailCareer">Career</p>
+                  <div class="team-career">
+                    <div><span class="team-year" data-i18n="m2c1y">2013–2017</span><span class="team-org" data-i18n="m2c1t">Osaka University</span><span class="team-what" data-i18n="m2c1d">B.Eng., School of Engineering Science, Systems Science</span></div>
+                    <div><span class="team-year" data-i18n="m2c2y">2017–2021</span><span class="team-org" data-i18n="m2c2t">CyberAgent, Product Manager</span><span class="team-what" data-i18n="m2c2d">Launched Tapple in Taiwan; CPA below LTV in year one</span></div>
+                    <div><span class="team-year" data-i18n="m2c3y">2021–2024</span><span class="team-org" data-i18n="m2c3t">GREE, PdM Manager</span><span class="team-what" data-i18n="m2c3d">Led the REALITY roadmap and several scrum teams</span></div>
+                    <div><span class="team-year" data-i18n="m2c4y">2024–2025</span><span class="team-org" data-i18n="m2c4t">Sungrove, CPO</span><span class="team-what" data-i18n="m2c4d">120 people across Japan and Vietnam; ATS applications 2.5×</span></div>
+                  </div>
+                </div>
+                <div class="team-detail-col team-detail-bio">
+                  <p class="team-bio" data-i18n="m2Bio1">Tsutomu has spent about ten years building products, from product manager to CPO, across consumer apps, B2B SaaS and IoT/AI. At CyberAgent he launched the Taiwan business of a dating app and reached CPA below LTV in its first year. At GREE he led the roadmap and several scrum teams for the REALITY live-streaming platform.</p>
+                  <p class="team-bio" data-i18n="m2Bio2">Most recently, as CPO at Sungrove, he managed a 120-person product organization across Japan and Vietnam, set up a Vietnamese subsidiary of more than 100 people, and raised candidate acquisition on the company's recruiting platform 2.5-fold. At ARCSET he owns product selection, Japanese localization and implementation, including system integration.</p>
+                </div>
+                <div class="team-detail-col team-detail-side">
+                  <p class="team-detail-label" data-i18n="detailFigures">Track record</p>
+                  <div class="team-stats">
+                    <div><strong data-i18n="m2s1n">120</strong><span data-i18n="m2s1l">People managed, JP and VN</span></div>
+                    <div><strong data-i18n="m2s2n">2.5×</strong><span data-i18n="m2s2l">Candidate acquisition</span></div>
+                    <div><strong data-i18n="m2s3n">¥1B</strong><span data-i18n="m2s3l">Monthly revenue of the ATS business</span></div>
+                  </div>
+                  <p class="team-detail-label" data-i18n="detailExpertise">Expertise</p>
+                  <p class="team-tags" data-i18n="m2Tags">Product selection · Japanese localization · Implementation and integration · Engineering organization</p>
+                </div>
+                <button class="team-detail-close" type="button"><span data-i18n="detailClose">Close</span><i aria-hidden="true"></i></button>
+              </div>
+            </li>
+            <li class="team-detail" id="team-detail-hayami" data-member="hayami" hidden>
+              <div class="team-detail-inner">
+                <div class="team-detail-col team-detail-career">
+                  <p class="team-detail-label" data-i18n="detailCareer">Career</p>
+                  <div class="team-career">
+                    <div><span class="team-year" data-i18n="m3c1y">1997–</span><span class="team-org" data-i18n="m3c1t">Moonbat / Delfonics</span><span class="team-what" data-i18n="m3c1d">B2B sales to department stores and major retailers</span></div>
+                    <div><span class="team-year" data-i18n="m3c2y">2005–</span><span class="team-org" data-i18n="m3c2t">Real estate sales / Asuka Club, Secretary General</span><span class="team-what" data-i18n="m3c2d">Ran a real-estate owners' community and member matching</span></div>
+                    <div><span class="team-year" data-i18n="m3c3y">2012–</span><span class="team-org" data-i18n="m3c3t">SEM agency</span><span class="team-what" data-i18n="m3c3d">New accounts among banks and listed companies; cross-industry alliances</span></div>
+                    <div><span class="team-year" data-i18n="m3c4y">–2017</span><span class="team-org" data-i18n="m3c4t">Kawakore, Founder and CEO</span><span class="team-what" data-i18n="m3c4d">Founded a model and influencer business; sold it</span></div>
+                    <div><span class="team-year" data-i18n="m3c5y">2017–</span><span class="team-org" data-i18n="m3c5t">Host, Kawakore Salon</span><span class="team-what" data-i18n="m3c5d">Cross-industry marketers' gathering, 33 editions</span></div>
+                  </div>
+                </div>
+                <div class="team-detail-col team-detail-bio">
+                  <p class="team-bio" data-i18n="m3Bio1">Mamoru has been in sales for nearly thirty years, across manufacturing, retail, real estate, finance and advertising. He sold to department stores and major retailers for Moonbat and Delfonics, ran a community of real-estate owners as its secretary general, and at an SEM agency opened new accounts among financial institutions and listed companies while driving cross-industry alliances.</p>
+                  <p class="team-bio" data-i18n="m3Bio2">He founded an influencer media business and sold it, and has hosted a cross-industry gathering of marketers more than thirty times. At ARCSET he turns that network into first meetings, both for ARCSET and for its clients.</p>
+                </div>
+                <div class="team-detail-col team-detail-side">
+                  <p class="team-detail-label" data-i18n="detailFigures">Track record</p>
+                  <div class="team-stats">
+                    <div><strong data-i18n="m3s1n">29 yrs</strong><span data-i18n="m3s1l">In sales</span></div>
+                    <div><strong data-i18n="m3s2n">8,000+</strong><span data-i18n="m3s2l">Business-card network</span></div>
+                    <div><strong data-i18n="m3s3n">30+</strong><span data-i18n="m3s3l">Gatherings hosted</span></div>
+                  </div>
+                  <p class="team-detail-label" data-i18n="detailExpertise">Expertise</p>
+                  <p class="team-tags" data-i18n="m3Tags">Prospecting and introductions · Alliances and referrals · Web marketing · Community</p>
+                </div>
+                <button class="team-detail-close" type="button"><span data-i18n="detailClose">Close</span><i aria-hidden="true"></i></button>
+              </div>
+            </li>
+            <li class="team-detail" id="team-detail-tajima" data-member="tajima" hidden>
+              <div class="team-detail-inner">
+                <div class="team-detail-col team-detail-career">
+                  <p class="team-detail-label" data-i18n="detailCareer">Career</p>
+                  <div class="team-career">
+                    <div><span class="team-year" data-i18n="m4c1y"></span><span class="team-org" data-i18n="m4c1t">Webridge</span><span class="team-what" data-i18n="m4c1d">Inside sales and training; peak 315% of monthly target</span></div>
+                    <div><span class="team-year" data-i18n="m4c2y"></span><span class="team-org" data-i18n="m4c2t">i-FLAG, Sales Sub-manager</span><span class="team-what" data-i18n="m4c2d">Sales training and org improvement; team from 7 to ~30</span></div>
+                    <div><span class="team-year" data-i18n="m4c3y">2026–</span><span class="team-org" data-i18n="m4c3t">ARCSET</span><span class="team-what" data-i18n="m4c3d">Leads prospecting and inside sales</span></div>
+                  </div>
+                </div>
+                <div class="team-detail-col team-detail-bio">
+                  <p class="team-bio" data-i18n="m4Bio1">Reon built his career in inside sales and sales enablement. At Webridge he ran inside sales and training, reaching 315% of monthly target at his peak. At i-FLAG, as sales sub-manager, he led sales training and organizational improvement and grew his department from seven people to around thirty in a year and a half, winning the company-wide annual president's award for 2025 and the monthly award four months running.</p>
+                  <p class="team-bio" data-i18n="m4Bio2">At ARCSET he leads prospecting and inside sales: talk design, weekly KPI cadence and member coaching. His job is to turn a client's first sales motion in Japan into something that can be measured, repeated and handed over.</p>
+                </div>
+                <div class="team-detail-col team-detail-side">
+                  <p class="team-detail-label" data-i18n="detailFigures">Track record</p>
+                  <div class="team-stats">
+                    <div><strong data-i18n="m4s1n">315%</strong><span data-i18n="m4s1l">Peak monthly target attainment</span></div>
+                    <div><strong data-i18n="m4s2n">7→30</strong><span data-i18n="m4s2l">Team growth in 18 months</span></div>
+                    <div><strong data-i18n="m4s3n">Award</strong><span data-i18n="m4s3l">President's award, FY2025</span></div>
+                  </div>
+                  <p class="team-detail-label" data-i18n="detailExpertise">Expertise</p>
+                  <p class="team-tags" data-i18n="m4Tags">Inside sales · Talk design · KPI operation · Sales team coaching</p>
+                </div>
+                <button class="team-detail-close" type="button"><span data-i18n="detailClose">Close</span><i aria-hidden="true"></i></button>
+              </div>
+            </li>
+            <li class="team-detail" id="team-detail-yamazaki" data-member="yamazaki" hidden>
+              <div class="team-detail-inner">
+                <div class="team-detail-col team-detail-career">
+                  <p class="team-detail-label" data-i18n="detailCareer">Career</p>
+                  <div class="team-career">
+                    <div><span class="team-year" data-i18n="m5c1y"></span><span class="team-org" data-i18n="m5c1t">Big Four audit firm</span><span class="team-what" data-i18n="m5c1d">Financial statement and internal control audits</span></div>
+                    <div><span class="team-year" data-i18n="m5c2y"></span><span class="team-org" data-i18n="m5c2t">Big Four tax firm, Shanghai</span><span class="team-what" data-i18n="m5c2d">International tax advisory centered on China</span></div>
+                    <div><span class="team-year" data-i18n="m5c3y"></span><span class="team-org" data-i18n="m5c3t">Big Four risk advisory</span><span class="team-what" data-i18n="m5c3d">Global governance, overseas internal audit, fraud investigation</span></div>
+                    <div><span class="team-year" data-i18n="m5c4y">Now</span><span class="team-org" data-i18n="m5c4t">GRC team leader</span><span class="team-what" data-i18n="m5c4d">Global compliance and internal audit alongside lawyers</span></div>
+                  </div>
+                </div>
+                <div class="team-detail-col team-detail-bio">
+                  <p class="team-bio" data-i18n="m5Bio1">Kohei is a Japanese CPA and certified tax accountant with experience at three Big Four firms: financial statement and internal control audits, international tax advisory centered on China during years based in Shanghai, and risk advisory covering global governance, internal audit of overseas subsidiaries and fraud investigations. He now leads a governance, risk and compliance team that works alongside lawyers on global compliance and internal audit.</p>
+                  <p class="team-bio" data-i18n="m5Bio2">For ARCSET's clients he looks after the defensive side of a Japan entry: setting up internal controls and rules from day one, spotting Japan–China and Asian tax risks early, meeting the management standards an overseas headquarters expects, and building a structure that passes large enterprises' vendor due diligence. Tax advice and representation are provided by Kohei in his own capacity, not by ARCSET.</p>
+                </div>
+                <div class="team-detail-col team-detail-side">
+                  <p class="team-detail-label" data-i18n="detailFigures">Track record</p>
+                  <div class="team-stats">
+                    <div><strong data-i18n="m5s1n">CPA</strong><span data-i18n="m5s1l">Japan</span></div>
+                    <div><strong data-i18n="m5s2n">Tax accountant</strong><span data-i18n="m5s2l">Certified, Japan</span></div>
+                    <div><strong data-i18n="m5s3n">Big 4 × 3</strong><span data-i18n="m5s3l">Audit, tax, risk</span></div>
+                  </div>
+                  <p class="team-detail-label" data-i18n="detailExpertise">Expertise</p>
+                  <p class="team-tags" data-i18n="m5Tags">Governance design · Japan–China and Asian tax · Internal audit · Vendor due diligence readiness</p>
+                </div>
+                <button class="team-detail-close" type="button"><span data-i18n="detailClose">Close</span><i aria-hidden="true"></i></button>
+              </div>
+            </li>
+        </ul>
+        <p class="team-network reveal" data-i18n="teamNetwork">For each engagement we add business developers, engineers and industry specialists from our network, and have a dedicated team in place within about two weeks of signing.</p>
       </div>
     </section>
 
@@ -462,6 +577,6 @@
     "knowsLanguage": ["ja", "en", "zh"]
   }
   </script>
-  <script src="script.js?v=20261119f"></script>
+  <script src="script.js?v=20261119h"></script>
 </body>
 </html>
